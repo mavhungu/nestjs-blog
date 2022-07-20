@@ -1,6 +1,8 @@
 {
   "name": "client-blog",
   "version": "0.1.0",
+  "description": "Mavhungu Ronewa's blog",
+  "author": "Mavhungu Ronewa",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
