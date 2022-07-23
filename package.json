@@ -10,7 +10,7 @@
     "install": "concurrently \"npm client-install\" \"npm backend-install\"",
     "client":"npm start --prefix client-blog",
     "server":"npm start --prefix backend-blog",
-    "dev":"npm dev --prefix backend-blog",
+    "dev":"npm run dev --prefix backend-blog",
     "start": "concurrently \"npm client \" \"npm server\"",
     "start:dev": "concurrently \"npm client \" \"npm dev\""
   },
