@@ -1,4 +1,28 @@
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
+import { AdminService } from './admin.service';
+import { CreateUserDto } from './dto';
 
 @Controller('admin')
-export class AdminController {}
+export class AdminController {
+  constructor(private readonly adminService: AdminService){}
+
+  @Post('register')
+  register(@Body() createUserDto: CreateUserDto){
+    return this.adminService.register(createUserDto);
+  }
+
+  @Post('login')
+  login(@Body() createUserDto: CreateUserDto){
+
+  }
+
+  @Get()
+  getUser(){
+    return this.adminService.getUser();
+  }
+
+  @Get('all')
+  getAll(){
+    return this.adminService.getAll();
+  }
+}

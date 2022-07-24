@@ -18,8 +18,8 @@ import { PrismaModule } from './prisma/prisma.module';
       username: process.env.DATABASE_USER,
       database: process.env.DATABASE_NAME,
       password: process.env.DATABASE_PASSWORD,
-      entities: [],
-      synchronize: true,
+      entities:[],
+      synchronize: true
     }),
     AdminModule,
     PrismaModule,
