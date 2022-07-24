@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client-install":"npm install --prefix client-blog",
-    "backend-install":"npm install --prefix backend-blog",
-    "install": "concurrently \"npm client-install\" \"npm backend-install\"",
+    "client-install":"npm run install --prefix client-blog",
+    "backend-install":"npm run install --prefix backend-blog",
+    "install": "concurrently \"npm run client-install\" \"npm run backend-install\"",
     "client":"npm start --prefix client-blog",
     "server":"npm start --prefix backend-blog",
     "dev":"npm run dev --prefix backend-blog",

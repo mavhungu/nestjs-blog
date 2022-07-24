@@ -4,13 +4,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AdminModule } from './admin/admin.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    TypeOrmModule.forRoot({
+    /*TypeOrmModule.forRoot({
       type: 'mysql',
       host: process.env.DATABASE_HOST,
       port: +process.env.DATABASE_PORT,
@@ -19,8 +20,9 @@ import { AdminModule } from './admin/admin.module';
       password: process.env.DATABASE_PASSWORD,
       entities: [],
       synchronize: true,
-    }),
+    }),*/
     AdminModule,
+    PrismaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
