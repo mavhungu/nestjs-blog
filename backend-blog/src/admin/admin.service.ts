@@ -45,7 +45,8 @@ export class AdminService {
     if (!pass) {
       throw new ForbiddenException('Incorrect Credentials');
     }
-    return user;
+    const { password, ...result } = user;
+    return result;
   }
 
   async getAll() {
