@@ -13,7 +13,7 @@ export class AdminController {
 
   @Post('login')
   login(@Body() createUserDto: CreateUserDto){
-
+    return this.adminService.login(createUserDto);
   }
 
   @Get()
