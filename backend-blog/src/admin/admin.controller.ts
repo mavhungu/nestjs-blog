@@ -4,25 +4,25 @@ import { CreateUserDto } from './dto';
 
 @Controller('admin')
 export class AdminController {
-  constructor(private readonly adminService: AdminService){}
+  constructor(private readonly adminService: AdminService) {}
 
   @Post('register')
-  register(@Body() createUserDto: CreateUserDto){
+  register(@Body() createUserDto: CreateUserDto) {
     return this.adminService.register(createUserDto);
   }
 
   @Post('login')
-  login(@Body() createUserDto: CreateUserDto){
+  login(@Body() createUserDto: CreateUserDto) {
     return this.adminService.login(createUserDto);
   }
 
   @Get()
-  getUser(){
+  getUser() {
     return this.adminService.getUser();
   }
 
   @Get('all')
-  getAll(){
+  getAll() {
     return this.adminService.getAll();
   }
 }
