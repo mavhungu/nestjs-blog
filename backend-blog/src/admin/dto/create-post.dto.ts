@@ -8,4 +8,8 @@ export class CreatePostDto {
   @IsString()
   @IsNotEmpty()
   image: string
+
+  @IsNotEmpty()
+  @IsString()
+  postBody: string
 }
