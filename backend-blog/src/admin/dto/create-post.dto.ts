@@ -7,7 +7,7 @@ export class CreatePostDto {
 
   @IsString()
   @IsNotEmpty()
-  image: string
+  image?: string
 
   @IsNotEmpty()
   @IsString()
