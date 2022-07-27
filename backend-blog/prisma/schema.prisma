@@ -24,6 +24,7 @@ model Post {
   published Boolean  @default(false)
   title     String
   image     String
+  postBody  String
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  String   @db.ObjectId
   createdAt DateTime @default(now())
