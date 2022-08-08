@@ -5,6 +5,7 @@ const Ronewa =()=>{
     <>
       <div className=''>
         <p>Ronewa</p>
+        <p>Mavhungu </p>
       </div>
     </>
   )
