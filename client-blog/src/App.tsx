@@ -8,14 +8,10 @@ import Register from './register'
 function App() {
   return (
     <div className="App">
-      <header className="">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Ronewa/>}></Route>
+          <Route path='/' element={<Ronewa/>} />
+          <Route index element={<Ronewa />} />
           <Route path='/login' element={<Login/>} />
           <Route path='/register' element={<Register/>} />
         </Routes>
