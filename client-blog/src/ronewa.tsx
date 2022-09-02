@@ -1,10 +1,11 @@
 import * as React from 'react';
+import { Navbar } from './components'
 
 const Ronewa =()=>{
   return(
     <>
       <div className=''>
-        <p>Ronewa</p>
+        <Navbar />
         <p>Mavhungu </p>
       </div>
     </>

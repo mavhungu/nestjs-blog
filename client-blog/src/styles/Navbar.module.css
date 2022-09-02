@@ -1,9 +1,36 @@
-.nav{
+.header{
     display: flex;
-    background: rgb(9, 151, 124, 0.1);
+    background: rgba(9, 151, 124, 0.1);
     justify-content: space-between;
     align-items: center;
+    padding: 0 5rem;
 }
 .logo{
     align-content: center;
+}
+.nav{
+    display: flex;
+    right: -25px;
+    justify-content: center;
+}
+.nav a{
+    padding: 0 1.2rem;
+    text-decoration: none;
+}
+.nav a:hover{
+    text-decoration: none;
+}
+.menu{
+    display: none;
+}
+@media screen and (max-width: 768px){
+    .header{
+        padding: 0 2rem;
+    }
+    .menu{
+        display: block;
+    }
+    .nav{
+        display: none;
+    }
 }
