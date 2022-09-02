@@ -1,0 +1,9 @@
+.nav{
+    display: flex;
+    background: rgb(9, 151, 124, 0.1);
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    align-content: center;
+}

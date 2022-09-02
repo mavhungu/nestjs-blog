@@ -4,6 +4,7 @@ import './App.css';
 import Ronewa from './ronewa';
 import Login from './login'
 import Register from './register'
+import Admin from './admin/index'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route index element={<Ronewa />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
+        <Route path={'/admin'} element={<Admin/>} />
       </Routes>
     </div>
   );

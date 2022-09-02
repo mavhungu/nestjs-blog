@@ -2,7 +2,7 @@ import React from 'react'
 const Index = ()=>{
   return (
     <div className=''>
-      <p>Index</p>
+      <p>Index admin</p>
     </div>
   )
 }
