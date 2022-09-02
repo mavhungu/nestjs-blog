@@ -7,12 +7,11 @@ export class PostService {
   constructor( private prismaService: PrismaService) {}
 
   addPost(createPostDto: CreatePostDto) {
-    return this.prismaService.post.create({
-      data:{
+    return this.prismaService.post.create({})
+  }
+}
+      /*data:{
         title: createPostDto.title,
         image: createPostDto.image,
         postBody: createPostDto.postBody
-      }
-    })
-  }
-}
+      }*/
