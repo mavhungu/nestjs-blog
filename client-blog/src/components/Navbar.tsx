@@ -5,13 +5,15 @@ import styles from '../styles/Navbar.module.css'
 
 const Navbar = ()=>{
   const [open , setOpen] = useState(false);
+  const [toggle, setToggle] = useState(false);
   const handleMenu =()=>{
     setOpen(!open);
+    setToggle(!toggle);
   };
     return (
         <nav className={styles.header}>
           <h2 className={styles.log}>Logo</h2>
-          <div className={styles.nav}>
+          <div className={ open ? `${styles.nav}`+ 'toggle' : `${styles.nav}` } >
             <Link to={'#'}>Contact</Link>
             <Link to={'#'}>Careers</Link>
             <Link to={'#'}>Blog</Link>
@@ -19,9 +21,9 @@ const Navbar = ()=>{
           </div>
           <div className={styles.menu} onClick={handleMenu}>
             { open ?
-              <AiOutlineClose/>
+              <AiOutlineClose size={'2em'}/>
               :
-              <AiOutlineMenu/>
+              <AiOutlineMenu size={'2em'}/>
             }
           </div>
         </nav>

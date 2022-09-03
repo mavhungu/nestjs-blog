@@ -4,10 +4,8 @@ import { Navbar } from './components'
 const Ronewa =()=>{
   return(
     <>
-      <div className=''>
-        <Navbar />
-        <p>Mavhungu </p>
-      </div>
+      <Navbar />
+      <p>Mavhungu </p>
     </>
   )
 }
