@@ -1,6 +1,6 @@
 .header{
     display: flex;
-    background: rgba(9, 151, 124, 0.1);
+    background: var(--header);
     justify-content: space-between;
     align-items: center;
     padding: 0 5rem;
@@ -26,7 +26,8 @@
     display: none;
 }
 .mobile_menu{
-    display: none;
+    display: none !important;
+    background: var(--primary);
 }
 @media screen and (max-width: 768px){
     .header{
