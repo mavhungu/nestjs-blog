@@ -20,4 +20,14 @@ export class PostService {
       where:{}
     })
   }
+  updatePost(){
+    return this.prismaService.post.findUnique({
+      where:{}
+    })
+  }
+  deletePost(){
+    return this.prismaService.post.delete({
+      where:{}
+    })
+  }
 }

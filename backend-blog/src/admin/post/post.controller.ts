@@ -16,4 +16,12 @@ export class PostController {
   editPost(){
     return this.postService.editPost()
   }
+  @Get()
+  updatePost(){
+    return this.postService.updatePost()
+  }
+  @Get()
+  deletePost(){
+    return this.postService.deletePost()
+  }
 }
