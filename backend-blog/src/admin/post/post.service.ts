@@ -16,8 +16,3 @@ export class PostService {
     })
   }
 }
-      /*data:{
-        title: createPostDto.title,
-        image: createPostDto.image,
-        postBody: createPostDto.postBody
-      }*/
