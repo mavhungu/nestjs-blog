@@ -3,32 +3,39 @@
     background: var(--header);
     justify-content: space-between;
     align-items: center;
-    padding: 0 5rem;
+    padding: 0 4.8rem;
     height: 60px;
     z-index: 1999;
+    position: relative;
 }
 .logo{
     align-content: center;
 }
 .nav{
+    align-items: center;
     display: flex;
-    justify-content: center;
 }
-.nav a{
-    padding: 0 1.2rem;
-    text-decoration: none;
+.nav_list{
+    display: flex;
+    gap: 4.8rem;
+    align-items: center;
+    list-style: none;
 }
-.nav a:hover{
-    text-decoration: none;
-    color: var(--primary);
+.nav_link:link,
+.nav_link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s;
+}
+.nav_link:hover,
+.nav_link:active {
+  color: #cf711f;
 }
 .menu{
     display: none;
 }
-.mobile_menu{
-    display: none !important;
-    background: var(--primary);
-}
+
 @media screen and (max-width: 768px){
     .header{
         padding: 0 2rem;
@@ -37,21 +44,66 @@
         display: block;
     }
     .nav{
-        display: none;
+        position: absolute;
+        display: flex;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: all 0.5s ease-in;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        background: var(--white);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
     }
-    .nav.toggle{
-        display: block;
-        padding-top: 5rem;
-        background: var(--links);
-    }
-    .nav .toggle a{
-        display: inline-flex;
-        text-decoration: none;
+    .open_nav .nav{
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(0%);
     }
     .mobile_menu .toggle{
         display: flex;
         top: 60px;
         right: 0;
         background: var(--primary);
+    }
+}
+@media screen and(max-width: 960px) {
+    html{
+        font-size: 505;
+    }
+    .nav{
+        position: absolute;
+        display: flex;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: all 0.5s ease-in;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        background: var(--white);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .open_nav .nav{
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(0%);
+    }
+    .nav_list{
+        flex-direction: column;
+        gap: 4.8rem;
     }
 }

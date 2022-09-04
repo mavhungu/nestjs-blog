@@ -13,11 +13,13 @@ const Navbar = ()=>{
     return (
         <nav className={styles.header}>
           <h2 className={styles.log}>Logo</h2>
-          <div className={styles.nav} >
-            <Link to={'#'}>Contact</Link>
-            <Link to={'#'}>Careers</Link>
-            <Link to={'#'}>Blog</Link>
-            <Link to={'#'}>Team</Link>
+          <div className={toggle ? `${styles.nav}`+ "opn_nav" : `${styles.nav}` }>
+            <ul className={styles.nav_list}>
+              <li><Link to={'#'} className={styles.nav_link}>Contact</Link></li>
+              <li><Link to={'#'} className={styles.nav_link}>Careers</Link></li>
+              <li><Link to={'#'} className={styles.nav_link}>Blog</Link></li>
+              <li><Link to={'#'} className={styles.nav_link}>Team</Link></li>
+            </ul>
           </div>
           <div className={styles.menu} onClick={handleMenu}>
             { open ?
@@ -25,12 +27,6 @@ const Navbar = ()=>{
               :
               <AiOutlineMenu size={'2em'}/>
             }
-          </div>
-          <div className={ open ? `${styles.mobile_menu}`+ "toggle" : `${styles.mobile_menu}` }>
-            <Link to={'#'}>Contact</Link>
-            <Link to={'#'}>Careers</Link>
-            <Link to={'#'}>Blog</Link>
-            <Link to={'#'}>Team</Link>
           </div>
         </nav>
     )
