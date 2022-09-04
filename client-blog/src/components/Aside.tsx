@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import {MdManageSearch} from 'react-icons/md'
-export const Aside = ()=>{
+
+const Aside = ()=>{
   const [search, setSearch] = useState('')
   const submitSearch =()=>{
     //e.preventdefault();
@@ -18,3 +19,4 @@ export const Aside = ()=>{
     </div>
   )
 }
+export default Aside;

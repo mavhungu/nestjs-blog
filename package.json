@@ -10,9 +10,7 @@
     "install": "concurrently \"npm run client-install\" \"npm run backend-install\"",
     "client":"npm start --prefix client-blog",
     "server":"npm start --prefix backend-blog",
-    "dev":"npm run dev --prefix backend-blog",
-    "start": "concurrently \"npm client \" \"npm server\"",
-    "start:dev": "concurrently \"npm client \" \"npm dev\""
+    "start-dev": "concurrently \"yarn client\" \"yarn server\""
   },
   "repository": {
     "type": "git",

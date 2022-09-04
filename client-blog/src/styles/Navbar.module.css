@@ -1,0 +1,47 @@
+.header{
+    display: flex;
+    background: rgba(9, 151, 124, 0.1);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5rem;
+    height: 60px;
+    z-index: 1999;
+}
+.logo{
+    align-content: center;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+}
+.nav a{
+    padding: 0 1.2rem;
+    text-decoration: none;
+}
+.nav a:hover{
+    text-decoration: none;
+    color: var(--primary);
+}
+.menu{
+    display: none;
+}
+@media screen and (max-width: 768px){
+    .header{
+        padding: 0 2rem;
+    }
+    .menu{
+        display: block;
+    }
+    .nav{
+        display: none;
+    }
+    .nav.toggle{
+        display: block;
+        padding-top: 5rem;
+        background: var(--links);
+    }
+    .nav .toggle a{
+        display: inline-flex;
+        text-decoration: none;
+    }
+}

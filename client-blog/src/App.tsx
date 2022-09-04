@@ -1,19 +1,16 @@
 import React from 'react';
 import { Routes, Route, } from 'react-router-dom';
-import './App.css';
-//import Ronewa from './ronewa';
-import Login from './login'
-import Register from './register'
-import { Home } from './pages/Home';
+//import './App.css';
+import Ronewa from './ronewa';
+import Admin from './admin/index';
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route index element={<Home />} />
-        <Route path='/login' element={<Login/>} />
-        <Route path='/register' element={<Register/>} />
+        <Route path='/' element={<Ronewa/>} />
+        <Route index element={<Ronewa />} />
+        <Route path={'/admin'} element={<Admin/>} />
       </Routes>
     </div>
   );
