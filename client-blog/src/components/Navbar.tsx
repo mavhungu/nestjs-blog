@@ -13,7 +13,7 @@ const Navbar = ()=>{
     return (
         <nav className={styles.header}>
           <h2 className={styles.log}>Logo</h2>
-          <div className={ open ? `${styles.nav}`+ 'toggle' : `${styles.nav}` } >
+          <div className={ toggle ? `${styles.nav}`+ 'toggle' : `${styles.nav}` } >
             <Link to={'#'}>Contact</Link>
             <Link to={'#'}>Careers</Link>
             <Link to={'#'}>Blog</Link>
@@ -25,6 +25,12 @@ const Navbar = ()=>{
               :
               <AiOutlineMenu size={'2em'}/>
             }
+          </div>
+          <div className={styles.mobile_menu}>
+            <Link to={'#'}>Contact</Link>
+            <Link to={'#'}>Careers</Link>
+            <Link to={'#'}>Blog</Link>
+            <Link to={'#'}>Team</Link>
           </div>
         </nav>
     )
