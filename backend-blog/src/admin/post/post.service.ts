@@ -15,4 +15,7 @@ export class PostService {
       }
     })
   }
+  editPost(){
+    return this.prismaService.post.findUnique()
+  }
 }
