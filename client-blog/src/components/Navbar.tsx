@@ -13,7 +13,7 @@ const Navbar = ()=>{
     return (
         <nav className={styles.header}>
           <h2 className={styles.log}>Logo</h2>
-          <div className={toggle ? `${styles.nav}`+ "opn_nav" : `${styles.nav}` }>
+          <div className={toggle ? `${styles.nav} opn_nav` : `${styles.nav}` }>
             <ul className={styles.nav_list}>
               <li><Link to={'#'} className={styles.nav_link}>Contact</Link></li>
               <li><Link to={'#'} className={styles.nav_link}>Careers</Link></li>
