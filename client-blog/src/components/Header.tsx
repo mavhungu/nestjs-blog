@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from  'react-router-dom'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import '../css/style.css'
 import '../css/general.css'
@@ -13,33 +14,33 @@ const Header = () => {
   };
   return (
     <header className="header">
-    <a href="#">
+    <Link to="#">
       {/*<img className="logo" src="img/omnifood-logo.png" alt="omnifood logo"/>*/}
       <h2 className="logo">Logo</h2>
-    </a>
+    </Link>
 
     <nav className="main-nav">
       <ul className="main-nav-list">
-        <li><a className="main-nav-link" href="#how">How it works</a></li>
-        <li><a className="main-nav-link" href="#meals">Meals</a></li>
+        <li><Link className="main-nav-link" to="#how">How it works</Link></li>
+        <li><Link className="main-nav-link" to="#meals">Meals</Link></li>
         <li>
-          <a className="main-nav-link" href="#testimonials">Testimonials</a>
+          <Link className="main-nav-link" to="#testimonials">Testimonials</Link>
         </li>
-        <li><a className="main-nav-link" href="#pricing">Pricing</a></li>
+        <li><Link className="main-nav-link" to="#pricing">Pricing</Link></li>
         <li>
-          <a className="main-nav-link nav-cta" href="#cta">Try for free!</a>
+          <Link className="main-nav-link nav-cta" to="#cta">Try for free!</Link>
         </li>
       </ul>
     </nav>
     <button className="btn-mobile-nav" aria-label="open and close menu button" onClick={handleMenu}>
       { open ?
-        <AiOutlineClose size={'2em'}/>
+        <AiOutlineClose size={'2em'} className={"mobile-nav-icon"}/>
         :
-        <AiOutlineMenu size={'2em'}/>
+        <AiOutlineMenu size={'2em'} className={"mobile-nav-icon"}/>
       }
     </button>
   </header>
   )
 }
 
-export default Header
+export default Header;

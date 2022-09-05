@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {Link} from "react-router-dom"
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
-import styles from '../styles/Navbar.module.css'
+import styles from '../styles/Navbar.module.css';
 
 const Navbar = ()=>{
   const [open , setOpen] = useState(false);
