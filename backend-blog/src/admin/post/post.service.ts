@@ -7,11 +7,27 @@ export class PostService {
   constructor( private prismaService: PrismaService) {}
 
   addPost(createPostDto: CreatePostDto) {
-    return this.prismaService.post.create({})
-  }
-}
-      /*data:{
+    return this.prismaService.post.create({
+      data:{
         title: createPostDto.title,
         image: createPostDto.image,
         postBody: createPostDto.postBody
-      }*/
+      }
+    })
+  }
+  editPost(){
+    return this.prismaService.post.findUnique({
+      where:{}
+    })
+  }
+  updatePost(){
+    return this.prismaService.post.findUnique({
+      where:{}
+    })
+  }
+  deletePost(){
+    return this.prismaService.post.delete({
+      where:{}
+    })
+  }
+}

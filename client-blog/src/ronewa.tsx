@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { Navbar } from './components'
+import { Navbar, Header } from './components'
 
 const Ronewa =()=>{
   return(
     <>
-      <Navbar />
+      <Header/>
       <p>Mavhungu </p>
     </>
   )
