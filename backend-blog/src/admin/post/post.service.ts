@@ -10,8 +10,11 @@ export class PostService {
     return this.prismaService.post.create({
       data:{
         title: createPostDto.title,
+        published: createPostDto.published,
+        slug: createPostDto.title,
         image: createPostDto.image,
-        postBody: createPostDto.postBody
+        postBody: createPostDto.postBody,
+        catagory: createPostDto.category,
       }
     })
   }
