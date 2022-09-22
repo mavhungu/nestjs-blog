@@ -7,10 +7,15 @@ const Navbar = ()=>{
   const [open , setOpen] = useState(false);
   const [toggle, setToggle] = useState(false);
   const handleMenu =()=>{
-    const headerEl = document.querySelector(".header");
+    
+    const headerEl = document.getElementsByClassName("header");
+    const body = document.querySelector('body');
+
+    headerEl.classList.toggle("nav-open");
+    body.classList.toggle('noscroll');
+
     setOpen(!open);
     setToggle(!toggle);
-    headerEl.classList.toggle("nav-open");
 
   };
     return (
