@@ -11,7 +11,7 @@ export class PostService {
       data:{
         title: createPostDto.title,
         published: createPostDto.published,
-        slug: createPostDto.title,
+        slug: createPostDto.slug,
         image: createPostDto.image,
         postBody: createPostDto.postBody,
         catagory: createPostDto.category,
