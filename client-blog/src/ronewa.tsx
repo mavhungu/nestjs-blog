@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { Navbar, Header } from './components'
+import { Header, Main } from './components'
+
 
 const Ronewa =()=>{
   return(
     <>
       <Header/>
-      
-      <p>Mavhungu </p>
+      <Main/>
     </>
   )
 }
+
 export default Ronewa;

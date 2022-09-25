@@ -1,0 +1,8 @@
+.form{
+  margin: 0 auto;
+  padding: 15px;
+  height: 100vh;
+  background: #cf711f;
+  justify-content: center;
+  align-items: center;
+}
