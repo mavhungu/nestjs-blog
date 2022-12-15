@@ -4,36 +4,30 @@ import { CreatePostDto } from '../dto';
 
 @Injectable()
 export class PostService {
-  constructor( private prismaService: PrismaService) {}
+  constructor(private prismaService: PrismaService) {}
 
   addPost(dto: CreatePostDto) {
     console.log(dto);
     return this.prismaService.post.create({
       data: {
         ...dto,
-      }
-    })
+      },
+    });
   }
-  /*data:{
-    title: createPostDto.title,
-    published: createPostDto.published,
-    postBody: createPostDto.postBody,
-    catagory: createPostDto.category,
-  }
-  */
-  editPost(){
+
+  editPost() {
     return this.prismaService.post.findUnique({
-      where:{}
-    })
+      where: {},
+    });
   }
-  updatePost(){
+  updatePost() {
     return this.prismaService.post.findUnique({
-      where:{}
-    })
+      where: {},
+    });
   }
-  deletePost(){
+  deletePost() {
     return this.prismaService.post.delete({
-      where:{}
-    })
+      where: {},
+    });
   }
 }
