@@ -10,7 +10,7 @@ export class CreatePostDto {
 
   @IsString()
   @IsNotEmpty()
-  slug: string
+  slug?: string
 
   @IsString()
   category: string

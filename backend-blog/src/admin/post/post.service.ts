@@ -6,18 +6,21 @@ import { CreatePostDto } from '../dto';
 export class PostService {
   constructor( private prismaService: PrismaService) {}
 
-  addPost(createPostDto: CreatePostDto) {
+  addPost(dto: CreatePostDto) {
+    console.log(dto);
     return this.prismaService.post.create({
-      data:{
-        title: createPostDto.title,
-        published: createPostDto.published,
-        slug: createPostDto.slug,
-        image: createPostDto.image,
-        postBody: createPostDto.postBody,
-        catagory: createPostDto.category,
+      data: {
+        ...dto,
       }
     })
   }
+  /*data:{
+    title: createPostDto.title,
+    published: createPostDto.published,
+    postBody: createPostDto.postBody,
+    catagory: createPostDto.category,
+  }
+  */
   editPost(){
     return this.prismaService.post.findUnique({
       where:{}
