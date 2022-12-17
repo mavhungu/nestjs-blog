@@ -7,7 +7,6 @@ export class PostService {
   constructor(private prismaService: PrismaService) {}
 
   addPost(dto: CreatePostDto) {
-    console.log(dto);
     return this.prismaService.post.create({
       data: {
         ...dto,
@@ -22,7 +21,7 @@ export class PostService {
   }
   updatePost() {
     return this.prismaService.post.findUnique({
-      where: {},
+      where: { },
     });
   }
   deletePost() {

@@ -10,4 +10,7 @@ export class AppService {
   getUser() {
     return this.prismaService.user.findMany();
   }
+  postUser() {
+    return 'Ronewa';
+  }
 }

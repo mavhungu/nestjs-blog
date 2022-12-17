@@ -13,7 +13,7 @@ export class CreatePostDto {
   slug?: string
 
   @IsString()
-  category: string
+  category?: string
 
   @IsString()
   @IsNotEmpty()
@@ -22,4 +22,5 @@ export class CreatePostDto {
   @IsNotEmpty()
   @IsString()
   postBody: string
+
 }
