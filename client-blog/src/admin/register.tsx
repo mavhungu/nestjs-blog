@@ -1,9 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Register = ()=>{
+const Register = () => {
   return (
     <div className=''>
-      <p>Register page</p>
+    	<form>
+				<p>Register page</p>
+				<Link to={'/admin'}>Login</Link>
+			</form>
     </div>
   )
 }
