@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 //import "bootstrap/dist/css/bootstrap.min.css";
 //import "bootstrap/dist/js/bootstrap.bundle";
 import './index.css';
+import './css/general.css';
+import './css/style.css';
+import './css/queries.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

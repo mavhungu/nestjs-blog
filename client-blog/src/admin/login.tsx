@@ -18,6 +18,8 @@ const Login = () =>{
             </div>
             <div className="mt-3">
             	<Link to="/admin/register">Register</Link>
+            		<br />
+							<Link to="/">Home</Link>
             </div>
           </form>
         </div>

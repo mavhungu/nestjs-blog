@@ -13,7 +13,7 @@ const Footer = ()=>{
       <div className="container grid grid--footer">
         <div className="logo-col">
           <Link to="#" className="footer-logo">
-            <img className="logo" src={logo} alt="omnifood logo"/>
+            <img className="logo" src={logo} alt="ronewa logo"/>
           </Link>
 
           <ul className="social-links">
@@ -29,7 +29,7 @@ const Footer = ()=>{
           </ul>
 
           <p className="copyright">
-            Copyright &copy; <span className="year">2027</span> by Omnifood, Inc.
+            Copyright &copy; <span className="year">2022</span> by Ronewa, Inc.
             All rights reserved.
           </p>
         </div>
@@ -37,13 +37,13 @@ const Footer = ()=>{
           <p className="footer-heading">Contact us</p>
           <address className="contact">
             <p className="address">
-              623 Harrison St., 2nd Floor, San Francisco, CA 94107
+              190 Scheiding St., 2nd Floor, Pretoria, ZA 0002
             </p>
             <p>
-              <a className="footer-link" href="tel:415-201-6370">415-201-6370</a>
+              <a className="footer-link" href="tel:2778-667-1901">2778-667-1901</a>
               <br />
-              <a className="footer-link" href="mailto:hello@omnifood.com">
-                hello@omnifood.com
+              <a className="footer-link" href="mailto:hello@ronewa.com">
+                hello@ronewa.com
               </a>
             </p>
           </address>

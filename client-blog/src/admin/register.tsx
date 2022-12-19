@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Register = () => {
   return (
-    <div className=''>
+    <div className='justify-content-center align-items-center'>
     	<form>
 				<p>Register page</p>
 				<Link to={'/admin'}>Login</Link>

@@ -2,9 +2,7 @@ import { useState } from 'react';
 import { Link } from  'react-router-dom';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
 import logo from "../img/omnifood-logo.png";
-import '../css/general.css';
-import '../css/style.css';
-import '../css/queries.css';
+
 
 const Header = () => {
   const [open , setOpen] = useState(false);
@@ -23,13 +21,13 @@ const Header = () => {
   };
   return (
     <header className="header">
-      <Link to="#">
+      <Link to="/">
         <img className="logo" src={logo} alt="logo"/>
       </Link>
 
     <nav className="main-nav">
       <ul className="main-nav-list">
-        <li><Link className="main-nav-link" to="#">Home</Link></li>
+        <li><Link className="main-nav-link" to="/">Home</Link></li>
         <li><Link className="main-nav-link" to="#">Services</Link></li>
         <li><Link className="main-nav-link" to="#">Gallery</Link></li>
         <li><Link className="main-nav-link" to="#">Contact</Link></li>
