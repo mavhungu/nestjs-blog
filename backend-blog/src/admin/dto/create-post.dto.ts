@@ -4,10 +4,8 @@ export class CreatePostDto {
   @IsString()
   @IsNotEmpty()
   title: string;
-
   @IsBoolean()
   published: boolean;
-
   @IsString()
   @IsNotEmpty()
   slug?: string;
