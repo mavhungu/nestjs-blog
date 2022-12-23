@@ -1,26 +1,22 @@
-import { IsBoolean, IsNotEmpty, IsString } from "class-validator"
+import { IsBoolean, IsNotEmpty, IsString } from 'class-validator';
 
 export class CreatePostDto {
   @IsString()
   @IsNotEmpty()
-  title: string
+  title: string;
 
   @IsBoolean()
-  published: boolean
+  published: boolean;
 
   @IsString()
   @IsNotEmpty()
-  slug?: string
-
+  slug?: string;
   @IsString()
-  category?: string
-
+  category?: string;
   @IsString()
   @IsNotEmpty()
-  image?: string
-
+  image?: string;
   @IsNotEmpty()
   @IsString()
-  postBody: string
-
+  postBody: string;
 }
