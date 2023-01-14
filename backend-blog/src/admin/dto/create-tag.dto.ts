@@ -5,6 +5,4 @@ export class CreateTagDto {
   @IsNotEmpty()
   name: string;
 
-  @IsString()
-  slug?: string;
 }

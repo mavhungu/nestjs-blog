@@ -8,7 +8,7 @@ import {
   Param,
   ParseIntPipe,
 } from '@nestjs/common';
-import { CreatePostDto, CreateTagDto, UpdatePostDto } from '../dto';
+import { CreatePostDto, CreateTagDto, UpdatePostDto, CreateCategoryDto } from '../dto';
 import { PostService } from './post.service';
 
 @Controller('admin/data')
@@ -38,8 +38,15 @@ export class PostController {
     return this.postService.remove();
   }
 
+  /**
+   * ? get all post controller
+   */
+  @Get(':all')
+  async getAllPost() {
+    return await this.postService.getAllPost();
+  }
   /* Tags */
-
+  
   @Post('tag')
   async addTag(@Body() createTagDto: CreateTagDto) {
     return await this.postService.addTag(createTagDto);
@@ -49,4 +56,5 @@ export class PostController {
   async getTag(@Param('id') id: string) {
     return await this.postService.getTag(id);
   }
+
 }
