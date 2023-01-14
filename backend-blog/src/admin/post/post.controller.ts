@@ -15,17 +15,29 @@ import { PostService } from './post.service';
 export class PostController {
   constructor(private readonly postService: PostService) {}
 
-  @Post('add')
+  /**
+   * 
+   * @param createPostDto
+   * ? POSTS
+   * 
+   * @returns 
+   */
+  @Get('post/all')
+  async getAllPost() {
+    return await this.postService.getAllPost();
+  }
+
+  @Post('post/add')
   async addPost(@Body() createPostDto: CreatePostDto) {
     return this.postService.addPost(createPostDto);
   }
 
-  @Get(':id')
+  @Get('post/:id')
   async editPost(@Param(':id', ParseIntPipe) id: number) {
     return this.postService.editPost(id);
   }
 
-  @Patch(':id')
+  @Patch('post/:id')
   async updatePosts(
     @Param('id', ParseIntPipe) id: number,
     @Body() updatePostDto: UpdatePostDto,
@@ -33,19 +45,20 @@ export class PostController {
     return this.postService.updatePosts(id, updatePostDto);
   }
 
-  @Delete(':id')
+  @Delete('post/:id')
   async remove(@Param('id', ParseIntPipe) id: number) {
     return this.postService.remove();
   }
 
   /**
-   * ? get all post controller
+   * ? SETTING CATEGORY
    */
-  @Get(':all')
-  async getAllPost() {
-    return await this.postService.getAllPost();
-  }
   /* Tags */
+
+  @Post('category/add')
+  async addCategory(@Body() createCategory: CreateCategoryDto){
+    return this.postService.addCategory(createCategory);
+  }
   
   @Post('tag')
   async addTag(@Body() createTagDto: CreateTagDto) {

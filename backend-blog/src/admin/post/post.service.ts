@@ -17,6 +17,10 @@ export class PostService {
       }
     })
   }
+  
+  /**
+   *  ?end of Category 
+   * */
 
   /**
    * ? Post
@@ -46,7 +50,7 @@ export class PostService {
    */
 
   getAllPost(){
-    return this.prismaService.post.findMany({});
+    return this.prismaService.post.findMany();
   }
 
   editPost(id: number) {
