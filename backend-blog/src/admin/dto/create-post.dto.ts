@@ -7,14 +7,16 @@ export class CreatePostDto {
   @IsBoolean()
   published: boolean;
   @IsString()
-  @IsNotEmpty()
   slug?: string;
   @IsString()
-  category?: string;
-  @IsString()
-  @IsNotEmpty()
   image?: string;
   @IsNotEmpty()
   @IsString()
   postBody: string;
+  @IsString()
+  categoryId: string;
+  @IsString()
+  tagId: string;
+  @IsString()
+  authorId: string;
 }
