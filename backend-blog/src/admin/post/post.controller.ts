@@ -53,14 +53,15 @@ export class PostController {
   /**
    * ? SETTING CATEGORY
    */
-  /* Tags */
-
+  
   @Post('category/add')
   async addCategory(@Body() createCategory: CreateCategoryDto){
     return this.postService.addCategory(createCategory);
   }
   
-  @Post('tag')
+  /* Tags */
+  
+  @Post('tag/add')
   async addTag(@Body() createTagDto: CreateTagDto) {
     return await this.postService.addTag(createTagDto);
   }
