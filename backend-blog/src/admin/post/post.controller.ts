@@ -104,10 +104,10 @@ export class PostController {
 
   @Patch('tag/:id')
   async updateTag(
-    @Param('id', ParseIntPipe) id: string,
+    @Param('id') id: string,
     @Body() updateTag: UpdateTagDto,
   ) {
-    return this.postService.updateTag(id,this.updateTag)
+    return this.postService.updateTag(id, updateTag);
   }
 
   @Delete('tag/:id')

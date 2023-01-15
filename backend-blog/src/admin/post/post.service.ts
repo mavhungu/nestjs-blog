@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CreatePostDto, CreateTagDto, UpdatePostDto, CreateCategoryDto, UpdateCategoryDto } from '../dto';
+import { CreatePostDto, CreateTagDto, UpdatePostDto, UpdateTagDto, CreateCategoryDto, UpdateCategoryDto } from '../dto';
 
 @Injectable()
 export class PostService {
@@ -123,7 +123,7 @@ export class PostService {
     });
   }
 
-  updateTag(id: string, dto: CreateTagDto){
+  updateTag(id: string, dto: UpdateTagDto){
     return this.prismaService.tag.update({
       where: { id },
       data: {
