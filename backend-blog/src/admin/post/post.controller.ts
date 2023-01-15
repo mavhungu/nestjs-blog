@@ -8,7 +8,7 @@ import {
   Param,
   ParseIntPipe,
 } from '@nestjs/common';
-import { CreatePostDto, CreateTagDto, UpdatePostDto, CreateCategoryDto, UpdateTagDto } from '../dto';
+import { CreatePostDto, CreateTagDto, UpdatePostDto, CreateCategoryDto, UpdateTagDto, UpdateCategoryDto } from '../dto';
 import { PostService } from './post.service';
 
 @Controller('admin/data')
@@ -58,6 +58,29 @@ export class PostController {
   async addCategory(@Body() createCategory: CreateCategoryDto){
     return this.postService.addCategory(createCategory);
   }
+
+  @Get('category')
+  async getAllCategory(){
+    return this.postService.getAllCategory();
+  }
+
+  @Get('category/:id')
+  async getCategoryById(@Param('id') id: string) {
+    return this.postService.getCategoryById(id);
+  }
+
+  @Patch('category/:id')
+  async updateCategory(
+    @Param('id') id: string,
+    @Body() updateCategory: UpdateCategoryDto
+  ){
+    return this.postService.updateCategory(id, updateCategory);
+  }
+
+  @Delete('category/:id')
+  async deleteCategory(@Param('id') id: string){
+    return this.postService.deleteCategory(id);
+  }
   
   /**
    * ? Tags
@@ -68,7 +91,7 @@ export class PostController {
   async addTag(@Body() createTagDto: CreateTagDto) {
     return await this.postService.addTag(createTagDto);
   }
-  
+
   @Get('tag')
   async getTags(){
     return this.postService.getAllTag();
