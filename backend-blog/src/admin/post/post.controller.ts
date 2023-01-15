@@ -19,7 +19,6 @@ export class PostController {
    * 
    * @param createPostDto
    * ? POSTS
-   * 
    * @returns 
    */
   @Get('post/all')
@@ -84,7 +83,7 @@ export class PostController {
   
   /**
    * ? Tags
-   * 
+   * TODO: add all Tags routers
    */
   
   @Post('tag/add')
