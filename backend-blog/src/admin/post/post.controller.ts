@@ -8,53 +8,110 @@ import {
   Param,
   ParseIntPipe,
 } from '@nestjs/common';
-import { CreatePostDto, CreateTagDto, UpdatePostDto, CreateCategoryDto } from '../dto';
+import { CreatePostDto, CreateTagDto, UpdatePostDto, CreateCategoryDto, UpdateTagDto, UpdateCategoryDto } from '../dto';
 import { PostService } from './post.service';
 
 @Controller('admin/data')
 export class PostController {
   constructor(private readonly postService: PostService) {}
 
-  @Post('add')
+  /**
+   * 
+   * @param createPostDto
+   * ? POSTS
+   * @returns 
+   */
+  @Get('post/all')
+  async getAllPost() {
+    return await this.postService.getAllPost();
+  }
+
+  @Post('post/add')
   async addPost(@Body() createPostDto: CreatePostDto) {
     return this.postService.addPost(createPostDto);
   }
 
-  @Get(':id')
-  async editPost(@Param(':id', ParseIntPipe) id: number) {
+  @Get('post/:id')
+  async editPost(@Param(':id', ParseIntPipe) id: string) {
     return this.postService.editPost(id);
   }
 
-  @Patch(':id')
+  @Patch('post/:id')
   async updatePosts(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id', ParseIntPipe) id: string,
     @Body() updatePostDto: UpdatePostDto,
   ) {
     return this.postService.updatePosts(id, updatePostDto);
   }
 
-  @Delete(':id')
-  async remove(@Param('id', ParseIntPipe) id: number) {
-    return this.postService.remove();
+  @Delete('post/:id')
+  async remove(@Param('id') id: string) {
+    return this.postService.remove(id);
   }
 
   /**
-   * ? get all post controller
+   * ? SETTING CATEGORY
    */
-  @Get(':all')
-  async getAllPost() {
-    return await this.postService.getAllPost();
-  }
-  /* Tags */
   
-  @Post('tag')
+  @Post('category/add')
+  async addCategory(@Body() createCategory: CreateCategoryDto){
+    return this.postService.addCategory(createCategory);
+  }
+
+  @Get('category')
+  async getAllCategory(){
+    return this.postService.getAllCategory();
+  }
+
+  @Get('category/:id')
+  async getCategoryById(@Param('id') id: string) {
+    return this.postService.getCategoryById(id);
+  }
+
+  @Patch('category/:id')
+  async updateCategory(
+    @Param('id') id: string,
+    @Body() updateCategory: UpdateCategoryDto
+  ){
+    return this.postService.updateCategory(id, updateCategory);
+  }
+
+  @Delete('category/:id')
+  async deleteCategory(@Param('id') id: string){
+    return this.postService.deleteCategory(id);
+  }
+  
+  /**
+   * ? Tags
+   * TODO: add all Tags routers
+   */
+  
+  @Post('tag/add')
   async addTag(@Body() createTagDto: CreateTagDto) {
     return await this.postService.addTag(createTagDto);
   }
 
+  @Get('tag')
+  async getTags(){
+    return this.postService.getAllTag();
+  }
+  
   @Get('tag/:id')
   async getTag(@Param('id') id: string) {
     return await this.postService.getTag(id);
+  }
+
+  @Patch('tag/:id')
+  async updateTag(
+    @Param('id') id: string,
+    @Body() updateTag: UpdateTagDto,
+  ) {
+    return this.postService.updateTag(id, updateTag);
+  }
+
+  @Delete('tag/:id')
+  async removeTag(@Param('id') id: string){
+    this.postService.removeTag(id);
   }
 
 }

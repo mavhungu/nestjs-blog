@@ -1,5 +1,5 @@
-import Aside from "./Aside";
-import Footer from "./Footer";
+import { Aside, Card, Footer  } from ".";
+
 
 const Main = ()=>{
   return(
@@ -14,6 +14,9 @@ const Main = ()=>{
           <p>Pricing section</p>
         </section>
       </main>
+        <div className="container">
+          <Card />
+        </div>
       <Footer />
     </>
   )
