@@ -18,6 +18,36 @@ export class PostService {
     })
   }
 
+  getAllCategory(){
+    return this.prismaService.category.findMany({});
+  }
+
+  getCategoryById(id: number) {
+    return this.prismaService.category.findFirst({
+      where: {
+        
+      }
+    })
+  }
+  updateCategory(id: number){
+    return this.prismaService.category.update({
+      where :{
+        
+      },
+      data : {
+        
+      }
+    })
+  }
+
+  deleteCategory(id: number){
+    return this.prismaService.category.delete({
+      where :{
+        
+      }
+    })
+  }
+
   /**
    *  ?end of Category 
    * */
@@ -65,9 +95,11 @@ export class PostService {
     });
   }
 
-  remove() {
+  remove(id: number) {
     return this.prismaService.post.delete({
-      where: {},
+      where: {
+        
+      },
     });
   }
 
