@@ -22,17 +22,18 @@ export class PostService {
     return this.prismaService.category.findMany({});
   }
 
-  getCategoryById(id: number) {
+  getCategoryById(id: string) {
     return this.prismaService.category.findFirst({
       where: {
-        
+        id
       }
     })
   }
-  updateCategory(id: number){
+
+  updateCategory(id: string){
     return this.prismaService.category.update({
       where :{
-        
+        id
       },
       data : {
         
@@ -40,10 +41,10 @@ export class PostService {
     })
   }
 
-  deleteCategory(id: number){
+  deleteCategory(id: string){
     return this.prismaService.category.delete({
       where :{
-        
+        id
       }
     })
   }
@@ -83,23 +84,22 @@ export class PostService {
     return this.prismaService.post.findMany({});
   }
 
-  editPost(id: number) {
+  editPost(id: string) {
     return this.prismaService.post.findUnique({
-      where: {},
+      where: { id },
     });
   }
 
-  updatePosts(id: number, updatePostDto: UpdatePostDto) {
+  updatePosts(id: string, updatePostDto: UpdatePostDto) {
     return this.prismaService.post.findUnique({
-      where: {},
+      where: { id },
+      
     });
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return this.prismaService.post.delete({
-      where: {
-        
-      },
+      where: { id },
     });
   }
 
@@ -113,15 +113,28 @@ export class PostService {
     });
   }
 
+  getAllTag(){
+    return this.prismaService.tag.findMany({});
+  }
+
   getTag(id: string) {
     return this.prismaService.tag.findUnique({
       where: { id },
     });
   }
 
-  removeTag() {
+  updateTag(id: string, dto: CreateTagDto){
+    return this.prismaService.tag.update({
+      where: { id },
+      data: {
+        name: dto.name
+      }
+    })
+  }
+
+  removeTag(id: string) {
     return this.prismaService.tag.delete({
-      where: {},
+      where: { id },
     });
   }
 
