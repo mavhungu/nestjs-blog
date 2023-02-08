@@ -5,13 +5,11 @@ import Register from './register'
 
 const Index = () => {
   return (
-    <div className=''>
-      <Routes>
-        <Route path={'/'} element={<Login />} />
-        <Route index element={<Login />} />
-        <Route path={"register"} element={<Register/>} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path={'/'} element={<Login />} />
+      <Route index element={<Login />} />
+      <Route path={"register"} element={<Register/>} />
+    </Routes>
   )
 }
 export default Index;

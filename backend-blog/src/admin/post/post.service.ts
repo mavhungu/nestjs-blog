@@ -1,6 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CreatePostDto, CreateTagDto, UpdatePostDto, UpdateTagDto, CreateCategoryDto, UpdateCategoryDto } from '../dto';
+import {
+  CreatePostDto,
+  CreateTagDto,
+  UpdatePostDto,
+  UpdateTagDto,
+  CreateCategoryDto,
+  UpdateCategoryDto,
+} from '../dto';
 
 @Injectable()
 export class PostService {
@@ -10,53 +17,53 @@ export class PostService {
    * ! Category
    * ? Creating category
    */
-  addCategory(category: CreateCategoryDto){
+  addCategory(category: CreateCategoryDto) {
     return this.prismaService.category.create({
       data: {
-        name: category.name
-      }
-    })
+        name: category.name,
+      },
+    });
   }
 
-  getAllCategory(){
+  getAllCategory() {
     return this.prismaService.category.findMany({});
   }
 
   getCategoryById(id: string) {
     return this.prismaService.category.findFirst({
       where: {
-        id
-      }
-    })
-  }
-
-  updateCategory(id: string, updateCategory: UpdateCategoryDto){
-    return this.prismaService.category.update({
-      where :{
-        id
+        id,
       },
-      data : {
-        name: updateCategory.name
-      }
-    })
+    });
   }
 
-  deleteCategory(id: string){
+  updateCategory(id: string, updateCategory: UpdateCategoryDto) {
+    return this.prismaService.category.update({
+      where: {
+        id,
+      },
+      data: {
+        name: updateCategory.name,
+      },
+    });
+  }
+
+  deleteCategory(id: string) {
     return this.prismaService.category.delete({
-      where :{
-        id
-      }
-    })
+      where: {
+        id,
+      },
+    });
   }
 
   /**
-   *  ?end of Category 
+   *  ?end of Category
    * */
 
   /**
    * ? Post
-   * @param dto 
-   * @returns 
+   * @param dto
+   * @returns
    */
   addPost(dto: CreatePostDto) {
     return this.prismaService.post.create({
@@ -68,19 +75,19 @@ export class PostService {
         authorId: dto.authorId,
         tagId: dto.tagId,
         categoryId: dto.categoryId,
-        published: dto.published
-      }
-    })
+        published: dto.published,
+      },
+    });
   }
 
   /**
    * ? Retrive all post
-   * @param id 
+   * @param id
    * TODO get all post
-   * @returns 
+   * @returns
    */
 
-  getAllPost(){
+  getAllPost() {
     return this.prismaService.post.findMany({});
   }
 
@@ -93,7 +100,6 @@ export class PostService {
   updatePosts(id: string, updatePostDto: UpdatePostDto) {
     return this.prismaService.post.findUnique({
       where: { id },
-      
     });
   }
 
@@ -104,16 +110,16 @@ export class PostService {
   }
 
   /* Tags */
-  
+
   addTag(createTagDto: CreateTagDto) {
     return this.prismaService.tag.create({
       data: {
-        name: createTagDto.name
+        name: createTagDto.name,
       },
     });
   }
 
-  getAllTag(){
+  getAllTag() {
     return this.prismaService.tag.findMany({});
   }
 
@@ -123,13 +129,13 @@ export class PostService {
     });
   }
 
-  updateTag(id: string, dto: UpdateTagDto){
+  updateTag(id: string, dto: UpdateTagDto) {
     return this.prismaService.tag.update({
       where: { id },
       data: {
-        name: dto.name
-      }
-    })
+        name: dto.name,
+      },
+    });
   }
 
   removeTag(id: string) {
@@ -137,5 +143,4 @@ export class PostService {
       where: { id },
     });
   }
-
 }
