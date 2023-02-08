@@ -1,7 +1,7 @@
 import React from 'react'
-import { Aside, Navbar,Card } from './'
+import { Aside, Navbar,Card } from '.'
 
-export const Wrapper = (props:any)=>{
+export const Wrapper = ()=>{
   return(
     <div className='wrapper'>
       <Navbar/>
