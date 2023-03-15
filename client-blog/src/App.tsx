@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, } from 'react-router-dom';
-import Ronewa from './ronewa';
+import Blog from './Blog';
 import Login from './admin/login'
 import Register from './admin/register'
 
@@ -9,7 +9,7 @@ function App() {
     <div className="">
       <Routes>
         <Route path='/' />
-        <Route index element={<Ronewa />} />
+        <Route index element={<Blog />} />
         <Route path={'admin'} >
         	<Route index element={<Login/>} />
         	<Route path="register" element={<Register/>} />
