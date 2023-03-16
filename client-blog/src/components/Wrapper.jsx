@@ -1,7 +1,11 @@
 import React from 'react'
 import { Aside, Navbar,Card } from '.'
 
-export const Wrapper = ()=>{
+type WrapperProps = {
+    children: React.ReactNode;
+}
+
+export const Wrapper = (props: WrapperProps)=>{
   return(
     <div className='wrapper'>
       <Navbar/>

@@ -3,10 +3,10 @@ import { Header, Main } from './components'
 
 const Blog =()=>{
   return(
-    <>
+    <div className="bg-dimBlue">
       <Header/>
       <Main/>
-    </>
+    </div>
   )
 }
 

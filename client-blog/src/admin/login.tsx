@@ -11,8 +11,8 @@ import Omni from '../img/omnifood-logo.png'
 const Login = () => {
   return (
     <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray-50 py-6 sm:py-12">
-      {/*<img src={Omni} alt="Omni" className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" />
-      <div className="absolute inset-0 bg-center"></div>*/}
+      <img src={Omni} alt="Omni" className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" />
+      <div className="absolute inset-0 bg-center"></div>
     <div className="relative mx-auto w-full max-w-md bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
       <div className="w-full">
         <div className="text-center">

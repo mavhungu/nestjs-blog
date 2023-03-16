@@ -1,25 +1,15 @@
-import { Aside, Card, Footer  } from ".";
+import { Aside, Footer  } from ".";
 
 
 const Main = ()=>{
   return(
     <>
-      <main className="main">
+      <main className="flex justify-bebween bg-dimWhite">
         <Aside />
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-        <section className="section-hero">
-					<p>Hero section</p>
-        </section>
-
-        <section className="section-pricing" id="pricing">
-          <p>Pricing section</p>
-        </section>
+				<div className="bg-primary h-[100%] pt-4 px-4 w-full">
+					<p className="text-white">Mavhungu TGB</p>
+				</div>
       </main>
-        <div className="container">
-          <Card />
-        </div>
       <Footer />
     </>
   )

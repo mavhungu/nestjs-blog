@@ -1,25 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500@display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root{
-    --primary: #00040f;
-    --primary-200: #b4d3fe;
-    --primary-400: #5098fc;
-    --primary-500: #03449d;
-    --primary-600: #034caf;
-    --primary-700: #02367d;
-    --primary-800: #01214b;
-    --secondary: #00f6ff;
-    --links: #61dafb;
-    --white: #fff;
-    --header: rgba(9, 151, 124, 0.1);
-    --dimWhite: rgba(255, 255, 255, 0.7);
-    --dimBlue: rgba(9, 151, 124, 0.1);
-    --whiteRGB: rgba(255, 255, 255, 0.9);
-  }
-}
 
 :root{
   --primary: #00040f;
@@ -44,9 +27,7 @@
   scroll-behavior: smooth;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, 'Barlow', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
