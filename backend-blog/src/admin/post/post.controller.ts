@@ -32,7 +32,7 @@ export class PostController {
   }
 
   @Get('post/:id')
-  async editPost(@Param(':id', ParseIntPipe) id: string) {
+  async editPost(@Param('id', ParseIntPipe) id: string) {
     return this.postService.editPost(id);
   }
 

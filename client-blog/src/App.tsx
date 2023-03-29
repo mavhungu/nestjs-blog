@@ -6,16 +6,14 @@ import Register from './admin/register'
 
 function App() {
   return (
-    <div className="">
       <Routes>
         <Route path='/' />
         <Route index element={<Blog />} />
         <Route path={'admin'} >
-        	<Route index element={<Login/>} />
-        	<Route path="register" element={<Register/>} />
+            <Route index element={<Login/>} />
+            <Route path="register" element={<Register/>} />
         </Route>
       </Routes>
-    </div>
   );
 }
 
