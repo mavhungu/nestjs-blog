@@ -159,6 +159,12 @@ export class PostService {
   }
 
   removeTag(id: string) {
+  const tag = await this.prismaService.tag.findUnique({
+    where: { id }
+  });
+   if(!tag) {
+      throw new BadRequestException('Invalid tag');
+   }
     return this.prismaService.tag.delete({
       where: { id },
     });
