@@ -97,16 +97,27 @@ export class PostService {
     });
   }
 
-  updatePosts(id: string, updatePostDto: UpdatePostDto) {
+  /*updatePosts(id: string, updatePostDto: UpdatePostDto) {
     return this.prismaService.post.findUnique({
       where: { id },
     });
+  }*/
+
+  updatePosts(id: string, updatePostDto: UpdatePostDto) {
+    return this.prismaService.post.update({
+      where: {id},
+      data: {
+        ...updatePostDto
+      }
+    })
   }
 
-  remove(id: string) {
-    return this.prismaService.post.delete({
-      where: { id },
+  removePost(id: string) {
+    let post = this.prismaService.post.findUnique({
+      where: {id},
     });
+
+    return post;
   }
 
   /* Tags */

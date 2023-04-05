@@ -32,21 +32,21 @@ export class PostController {
   }
 
   @Get('post/:id')
-  async editPost(@Param('id', ParseIntPipe) id: string) {
+  async editPost(@Param('id') id: string) {
     return this.postService.editPost(id);
   }
 
   @Patch('post/:id')
   async updatePosts(
-    @Param('id', ParseIntPipe) id: string,
+    @Param('id') id: string,
     @Body() updatePostDto: UpdatePostDto,
   ) {
     return this.postService.updatePosts(id, updatePostDto);
   }
 
   @Delete('post/:id')
-  async remove(@Param('id') id: string) {
-    return this.postService.remove(id);
+  async removePost(@Param('id') id: string) {
+    return this.postService.removePost(id);
   }
 
   /**
