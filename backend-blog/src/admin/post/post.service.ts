@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import {
   CreatePostDto,
@@ -103,8 +103,9 @@ export class PostService {
     });
   }*/
 
-  updatePosts(id: string, updatePostDto: UpdatePostDto) {
-    return this.prismaService.post.update({
+
+  async updatePosts(id: string, updatePostDto: UpdatePostDto) {
+    return await this.prismaService.post.update({
       where: {id},
       data: {
         ...updatePostDto
@@ -112,12 +113,20 @@ export class PostService {
     })
   }
 
-  removePost(id: string) {
-    let post = this.prismaService.post.findUnique({
+  async removePost(id: string) {
+    const post = await this.prismaService.post.findUnique({
       where: {id},
     });
 
-    return post;
+    if(!post) {
+      throw new BadRequestException('Invalid post');
+    }
+
+    return await this.prismaService.post.delete({
+      where: {
+        id
+      },
+    });
   }
 
   /* Tags */
