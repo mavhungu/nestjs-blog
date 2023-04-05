@@ -49,6 +49,12 @@ export class PostService {
   }
 
   deleteCategory(id: string) {
+    const category = await this.prismaService.category.findUnique({
+      where: { id }
+    })
+    if(!category) {
+      throw new BadRequestException('Invalid category');
+    }
     return this.prismaService.category.delete({
       where: {
         id,
