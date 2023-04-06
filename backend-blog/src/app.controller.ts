@@ -1,21 +1,19 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get, Post, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('blog-post')
 export class AppController {
+
   constructor(private readonly appService: AppService) {}
 
-  @Get('hello')
-  getHello(): string {
-    return this.appService.getHello();
+  @Get()
+  getAllPosts() {
+    return this.appService.getAllPosts();
   }
 
-  @Get('all')
-  getUser() {
-    return this.appService.getUser();
+  @Get('/:id')
+  getPostById(@Param('id') id: string) {
+    return this.appService.getPostById(id);
   }
-  @Post('ronewa')
-  postUser() {
-    return this.appService.postUser();
-  }
+
 }

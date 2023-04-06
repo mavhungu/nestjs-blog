@@ -1,16 +1,23 @@
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from './prisma/prisma.service';
 
 @Injectable()
 export class AppService {
+
   constructor(private prismaService: PrismaService) {}
-  getHello(): string {
-    return 'Hello World!';
+
+  async getAllPosts() {
+    return await this.prismaService.post.findMany();
   }
-  getUser() {
-    return this.prismaService.user.findMany();
+
+  async getPostById(id: string) {
+    const post =  await this.prismaService.post.findUnique({
+      where: { id },
+    });
+    if(!post) {
+      throw new ForbiddenException('Incorrect Credentials');
+    }
+    return post;
   }
-  postUser() {
-    return 'Ronewa';
-  }
+
 }
