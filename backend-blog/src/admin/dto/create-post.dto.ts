@@ -10,6 +10,9 @@ export class CreatePostDto {
   slug?: string;
   @IsString()
   image?: string;
+  @IsString()
+  @IsNotEmpty()
+  summary: string
   @IsNotEmpty()
   @IsString()
   postBody: string;

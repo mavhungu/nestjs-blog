@@ -17,28 +17,28 @@ export class PostService {
    * ! Category
    * ? Creating category
    */
-  addCategory(category: CreateCategoryDto) {
-    return this.prismaService.category.create({
+  async addCategory(category: CreateCategoryDto) {
+    return await this.prismaService.category.create({
       data: {
         name: category.name,
       },
     });
   }
 
-  getAllCategory() {
-    return this.prismaService.category.findMany({});
+  async getAllCategory() {
+    return await this.prismaService.category.findMany({});
   }
 
-  getCategoryById(id: string) {
-    return this.prismaService.category.findFirst({
+  async getCategoryById(id: string) {
+    return await this.prismaService.category.findFirst({
       where: {
         id,
       },
     });
   }
 
-  updateCategory(id: string, updateCategory: UpdateCategoryDto) {
-    return this.prismaService.category.update({
+  async updateCategory(id: string, updateCategory: UpdateCategoryDto) {
+    return await this.prismaService.category.update({
       where: {
         id,
       },
@@ -48,14 +48,14 @@ export class PostService {
     });
   }
 
-  deleteCategory(id: string) {
+  async deleteCategory(id: string) {
     const category = await this.prismaService.category.findUnique({
       where: { id }
     })
     if(!category) {
       throw new BadRequestException('Invalid category');
     }
-    return this.prismaService.category.delete({
+    return await this.prismaService.category.delete({
       where: {
         id,
       },
@@ -71,8 +71,8 @@ export class PostService {
    * @param dto
    * @returns
    */
-  addPost(dto: CreatePostDto) {
-    return this.prismaService.post.create({
+  async addPost(dto: CreatePostDto) {
+    return await this.prismaService.post.create({
       data: {
         title: dto.title,
         postBody: dto.postBody,
@@ -93,12 +93,12 @@ export class PostService {
    * @returns
    */
 
-  getAllPost() {
-    return this.prismaService.post.findMany({});
+  async getAllPost() {
+    return await this.prismaService.post.findMany({});
   }
 
-  editPost(id: string) {
-    return this.prismaService.post.findUnique({
+  async editPost(id: string) {
+    return await this.prismaService.post.findUnique({
       where: { id },
     });
   }
@@ -137,26 +137,26 @@ export class PostService {
 
   /* Tags */
 
-  addTag(createTagDto: CreateTagDto) {
-    return this.prismaService.tag.create({
+  async addTag(createTagDto: CreateTagDto) {
+    return await this.prismaService.tag.create({
       data: {
         name: createTagDto.name,
       },
     });
   }
 
-  getAllTag() {
-    return this.prismaService.tag.findMany({});
+  async getAllTag() {
+    return await this.prismaService.tag.findMany({});
   }
 
-  getTag(id: string) {
-    return this.prismaService.tag.findUnique({
+  async getTag(id: string) {
+    return await this.prismaService.tag.findUnique({
       where: { id },
     });
   }
 
-  updateTag(id: string, dto: UpdateTagDto) {
-    return this.prismaService.tag.update({
+  async updateTag(id: string, dto: UpdateTagDto) {
+    return await this.prismaService.tag.update({
       where: { id },
       data: {
         name: dto.name,
@@ -164,14 +164,14 @@ export class PostService {
     });
   }
 
-  removeTag(id: string) {
+  async removeTag(id: string) {
   const tag = await this.prismaService.tag.findUnique({
     where: { id }
   });
    if(!tag) {
       throw new BadRequestException('Invalid tag');
    }
-    return this.prismaService.tag.delete({
+    return await this.prismaService.tag.delete({
       where: { id },
     });
   }
