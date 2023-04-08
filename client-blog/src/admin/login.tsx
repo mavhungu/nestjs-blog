@@ -14,9 +14,8 @@ const Login = () => {
     const user = { email, password };
     console.log(user);
     const {data} = await axios.post("admin/login",user,{withCredentials:true});
-    //const { data } = await axios.get("admin/all");
 
-    //axios.defaults.headers.common['Authorization'] = `Bearer ${data['token']}`;
+    axios.defaults.headers.common['Authorization'] = `Bearer ${data['token']}`;
 
     setEmail(' ');
     setPassword('');
