@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Omni from '../img/omnifood-logo.png';
 
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const adminLogin = async (e:any)=> {
+    e.preventDefault();
+    if (!email || !password) return;
+    const user = { email, password };
+    console.log(user);
+    const {data} = await axios.post("admin/login",user,{withCredentials:true});
+    //const { data } = await axios.get("admin/all");
+
+    //axios.defaults.headers.common['Authorization'] = `Bearer ${data['token']}`;
+
+    setEmail(' ');
+    setPassword('');
+
+    console.log(data);
+  }
+
   return (
     <div className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12">
       <img className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" width="1308" src={Omni} alt="" />
@@ -15,10 +35,11 @@ const Login = () => {
           <p className="mt-2 text-gray-500">Sign in below to access your account</p>
         </div>
         <div className="mt-8">
-          <form action="" noValidate className="group">
+          <form noValidate className="group" onSubmit={adminLogin}>
             <div className="mb-6">
               <label for-email="email" className="mb-2 block text-sm text-gray-600">Email Address</label>
-              <input type="email" name="email" id="email" placeholder="you@company.com" className="w-full rounded-md border border-gray-300 px-3 py-2.5 placeholder-gray-300 shadow shadow-gray-100 focus:border-gray-500 focus:outline-none valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400" autoComplete="off" required pattern="[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+              <input type="email" name="email" id="email" placeholder="you@company.com" className="w-full rounded-md border border-gray-300 px-3 py-2.5 placeholder-gray-300 shadow shadow-gray-100 focus:border-gray-500 focus:outline-none valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400" autoComplete="off" required pattern="[a-z0-9._+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+               onChange={(e)=>setEmail(e.target.value) } />
               <span className="mt-2 hidden text-sm text-red-400">Please enter a valid email address. </span>
             </div>
             <div className="mb-6">
@@ -26,7 +47,8 @@ const Login = () => {
                 <label for-password="password" className="text-sm text-gray-600">Password</label>
                 <Link to="#!" className="text-sm text-gray-400 hover:text-indigo-500 focus:text-indigo-500 focus:outline-none">Forgot password?</Link>
               </div>
-              <input type="password" name="password" id="password" placeholder="Your Password" className="peer w-full rounded-md border border-gray-300 px-3 py-2.5 placeholder-gray-300 shadow shadow-gray-100 focus:border-gray-500 focus:outline-none valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400" pattern=".{6,}" required />
+              <input type="password" name="password" id="password" placeholder="Your Password" className="peer w-full rounded-md border border-gray-300 px-3 py-2.5 placeholder-gray-300 shadow shadow-gray-100 focus:border-gray-500 focus:outline-none valid:[&:not(:placeholder-shown)]:border-green-500 [&:not(:placeholder-shown):not(:focus):invalid~span]:block invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-400" pattern=".{6,}" required
+               onChange={(e)=>setPassword(e.target.value)} />
               <span className="mt-2 hidden text-sm text-red-400">Password must be atleast six characters. </span>
             </div>
             <div className="mb-6">
