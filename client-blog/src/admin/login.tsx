@@ -22,7 +22,7 @@ const Login = () => {
     setPassword('');
 
     console.log(data);
-    if(data.email) {return navigate('/admin/dashboard')}
+    if(data.email) {return navigate("/admin/dashboard")}
   }
 
   return (
