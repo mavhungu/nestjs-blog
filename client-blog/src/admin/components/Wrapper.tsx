@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Menu from './Menu';
 import Navbar from './Navbar';
 
@@ -6,10 +6,10 @@ const Wrapper = (props:any)=>{
   return (
     <div className='wrapper'>
       <Navbar />
-      <div className='container-fluid'>
-        <div className='row'>
+      <div className=''>
+        <div className='flex'>
           <Menu />
-            <main className='col-md-10 ms-sm-auto'>
+            <main className=''>
               {props.children}
             </main>
         </div>

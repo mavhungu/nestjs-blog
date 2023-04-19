@@ -1,5 +1,6 @@
 import React from 'react'
-const Menu = ()=>{
+
+const Menu = () => {
   return (
     <div className=''>
       <p>Menu</p>

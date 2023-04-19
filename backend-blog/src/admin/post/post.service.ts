@@ -8,6 +8,7 @@ import {
   CreateCategoryDto,
   UpdateCategoryDto,
 } from '../dto';
+const slugify = require('slugify');
 
 @Injectable()
 export class PostService {
@@ -72,11 +73,13 @@ export class PostService {
    * @returns
    */
   async addPost(dto: CreatePostDto) {
+
     return await this.prismaService.post.create({
       data: {
         title: dto.title,
+        summary: dto.summary,
         postBody: dto.postBody,
-        slug: dto.postBody,
+        slug: slugify(dto.summary),
         image: dto.image,
         authorId: dto.authorId,
         tagId: dto.tagId,

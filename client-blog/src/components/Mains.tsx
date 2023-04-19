@@ -12,16 +12,16 @@ const Main = ()=>{
     (
       async () => {
         setLoader(true);
-        const {data} = await axios.get("http://localhost:5000/api/blog-post");
+        const { data } = await axios.get("http://localhost:5000/api/blog-post");
         setTimeout(() => {
-          setLoader(false)
+          setLoader(false);
         },3000);
         console.log(data);
         const datas = data;
           if(datas.length === 0){
-            setNoPost(true)
+            setNoPost(true);
           };
-            setPost(datas)
+            setPost(datas);
       }
     )();
   }, []);

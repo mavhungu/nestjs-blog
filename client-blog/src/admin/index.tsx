@@ -1,8 +1,8 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Login from './login'
-import Register from './register'
-import { Dashboard } from './pages/Dashboard'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Login from './login';
+import Register from './register';
+import { Dashboard } from './pages/Dashboard';
 
 const Index = () => {
   return (

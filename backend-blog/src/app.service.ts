@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { NotFoundException, Injectable } from '@nestjs/common';
 import { PrismaService } from './prisma/prisma.service';
 
 @Injectable()
@@ -12,10 +12,10 @@ export class AppService {
 
   async getPostById(id: string) {
     const post =  await this.prismaService.post.findUnique({
-      where: { id },
+      where: { slug: id },
     });
     if(!post) {
-      throw new ForbiddenException('Incorrect Credentials');
+      throw new NotFoundException('Requested post doesn\'t exits');
     }
     return post;
   }
