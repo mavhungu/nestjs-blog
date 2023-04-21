@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { Aside, Footer  } from ".";
+import { Aside, Footer, Wrapper  } from ".";
 
 interface PostData {
 	id: string;
@@ -44,33 +44,29 @@ const Main = ()=>{
   }, []);
 
   return(
-    <>
-      <main className="flex justify-bebween bg-dimWhite">
-        <Aside />
-				{
-					loader?
-						<div style={{position: 'fixed', top:'50%', left:'50%', transform:'translate(-50%, -50%)'}}>
-              <p style={{display: 'block',margin: '0 auto', borderColor: 'red'}}>Loadin....</p>
-            </div>
-					:
-						<div className="bg-primary h-[100%] pt-4 px-4 w-full">
-							<p className="text-white">Mavhungu TGB</p>
-							<p className="bg-green-80">Ronewa Mavhungu</p>
-                {
-                  getPost.map((post)=>(
-                    <div className='' key={post.id}>
-                      <img src={post.image} alt={post.title} />
-                      <h3>{post.title}</h3>
-                      <p style={{color: 'ghostwhite'}}>{post.summary}</p>
-                      <Link to={`/blog-post/${post.slug}`}>read more</Link>
-                    </div>
-                  ))
-							  }
-						</div>
-				}
-      </main>
-      <Footer />
-    </>
+    <Wrapper>
+			{
+				loader?
+					<div style={{position: 'fixed', top:'50%', left:'50%', transform:'translate(-50%, -50%)'}}>
+						<p style={{display: 'block',margin: '0 auto', borderColor: 'red'}}>Loadin....</p>
+					</div>
+				:
+					<div className="bg-primary h-[100%] pt-4 px-4 w-full">
+						<p className="text-white">Mavhungu TGB</p>
+						<p className="bg-green-80">Ronewa Mavhungu</p>
+							{
+								getPost.map((post)=>(
+									<div className='' key={post.id}>
+										<img src={post.image} alt={post.title} />
+										<h3>{post.title}</h3>
+										<p style={{color: 'ghostwhite'}}>{post.summary}</p>
+										<Link to={`/blog-post/${post.slug}`}>read more</Link>
+									</div>
+								))
+							}
+					</div>
+			}
+    </Wrapper>
   )
 }
 export default Main;

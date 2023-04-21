@@ -1,12 +1,14 @@
 import React from 'react'
-import { Wrapper } from '../components/Wrapper'
+import { Wrapper } from '../components';
 
-export const Home = ()=>{
-  return(
+const Home = ()=>{
+  return (
     <Wrapper>
-      <div className='d-flex flex-wrap flex-md-nowrap pt-3'>
+      <div className='py-3 mx-3'>
         <h1>Index page</h1>
       </div>
     </Wrapper>
   )
 }
+
+export default Home;

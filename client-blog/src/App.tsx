@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, } from 'react-router-dom';
 import Blog from './Blog';
+import { BlogPost, Home } from'./pages';
 import Login from './admin/login'
 import Register from './admin/register'
 import { Dashboard } from './admin/pages/Dashboard';
@@ -9,7 +10,8 @@ function App() {
   return (
     <Routes>
       <Route path='/' />
-      <Route index element={<Blog />} />
+      <Route index element={<Home />} />
+      <Route path='blog-post' element={<BlogPost/>} />
       <Route path={'admin'} >
         <Route index element={<Login/>} />
         <Route path="register" element={<Register/>} />
