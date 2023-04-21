@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Aside, Footer  } from ".";
 
@@ -55,13 +56,16 @@ const Main = ()=>{
 						<div className="bg-primary h-[100%] pt-4 px-4 w-full">
 							<p className="text-white">Mavhungu TGB</p>
 							<p className="bg-green-80">Ronewa Mavhungu</p>
-							{getPost.map((post)=>(
-								<div className='' key={post.id}>
-									<h3>{post.title}</h3>
-									<p style={{color: 'ghostwhite'}}>{post.postBody}</p>
-								</div>
-							))
-							}
+                {
+                  getPost.map((post)=>(
+                    <div className='' key={post.id}>
+                      <img src={post.image} alt={post.title} />
+                      <h3>{post.title}</h3>
+                      <p style={{color: 'ghostwhite'}}>{post.summary}</p>
+                      <Link to={`/blog-post/${post.slug}`}>read more</Link>
+                    </div>
+                  ))
+							  }
 						</div>
 				}
       </main>
