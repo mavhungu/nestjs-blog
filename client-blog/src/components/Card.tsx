@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { URL_BLOCKS } from "../utils/paths";
 import "../css/card.css";
 
+interface Articles = {}
+
 const Card = () => {
   let [articles, setArticles] = useState([]);
 
