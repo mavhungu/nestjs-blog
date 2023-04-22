@@ -4,14 +4,19 @@ import { Link } from "react-router-dom";
 import { URL_BLOCKS } from "../utils/paths";
 import "../css/card.css";
 
-interface Articles = {}
+interface Articles {
+  id: string;
+  image: string;
+  title: string;
+  desc: string;
+}
 
 const Card = () => {
-  let [articles, setArticles] = useState([]);
+  let [articles, setArticles] = useState<Articles[]>([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
-      const response = await axios.get(
+      const response = await axios.get<Articles[]>(
         `${URL_BLOCKS}?_limit=6&_sort=id&_order=desc`
       );
       setArticles(response.data);

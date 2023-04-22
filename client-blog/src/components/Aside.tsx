@@ -1,12 +1,18 @@
 import React from 'react';
 import { Search } from '.';
+import { RiSearchLine } from 'react-icons/ri';
 
 const Aside = ()=>{
   return (
-    <div className='flex flex-col w-1/5'>
-      <div className='px-3 mx-3'>
+    <div className='hidden lg:flex flex-col w-1/5'>
+      <div className='mx-2'>
         <Search />
-        <p className="pt-2">Main Aside</p>
+        <div className="">
+          <div className="bg-primary-600 flex justify-between items-center">
+            <p className="text-white center">Main Aside</p>
+            <RiSearch/>
+          </div>
+        </div>
       </div>
     </div>
   )
