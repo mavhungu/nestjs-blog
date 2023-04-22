@@ -10,7 +10,7 @@ const Aside = ()=>{
         <div className="">
           <div className="bg-primary-600 flex justify-between items-center">
             <p className="text-white center">Main Aside</p>
-            <RiSearch/>
+            <RiSearchLine/>
           </div>
         </div>
       </div>

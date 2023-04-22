@@ -1,10 +1,10 @@
 import React from 'react';
 import { Routes, Route, } from 'react-router-dom';
-import Blog from './Blog';
-import { BlogPost, Home } from'./pages';
-import Login from './admin/login'
-import Register from './admin/register'
+import { BlogPost, Home, PageNotFound } from'./pages';
 import { Dashboard } from './admin/pages/Dashboard';
+import Blog from './Blog';
+import Login from './admin/login';
+import Register from './admin/register';
 
 function App() {
   return (
@@ -16,7 +16,9 @@ function App() {
         <Route index element={<Login/>} />
         <Route path="register" element={<Register/>} />
         <Route path={"dashboard"} element={<Dashboard/>} />
+        <Route path="*" element={<PageNotFound/>} />
       </Route>
+      <Route path="*" element={<PageNotFound/>} />
     </Routes>
   );
 }

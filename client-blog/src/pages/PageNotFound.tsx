@@ -1,10 +1,13 @@
+import React,{ useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-
-const PageNotFound  = ()=>{
+const PageNotFound = ()=>{
+  const navigate = useNavigate();
   return (
-    <>
-      <p> Page not found-404</p>
-    </>
+    <div className="flex flex-col justify-center align-center height-[100vh]">
+      <p>Page not found - 404</p>
+      <button onClick={()=>navigate(-1)}>Return back</button>
+    </div>
   )
 }
 
