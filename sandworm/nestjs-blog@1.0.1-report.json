@@ -1,0 +1,92 @@
+{
+  "createdAt": 1682438045145,
+  "system": {
+    "sandwormVersion": "1.36.2",
+    "nodeVersion": "18.14.2",
+    "lockfileVersion": 2,
+    "packageManager": "npm",
+    "packageManagerVersion": "9.5.0"
+  },
+  "name": "nestjs-blog",
+  "version": "1.0.1",
+  "rootVulnerabilities": [],
+  "dependencyVulnerabilities": [],
+  "licenseUsage": [
+    {
+      "string": "MIT",
+      "meta": {
+        "categories": {
+          "defaultCategory": "Permissive",
+          "userCategories": []
+        },
+        "isSpdxExpression": false
+      },
+      "dependencies": [
+        {
+          "name": "asynckit",
+          "version": "0.4.0"
+        },
+        {
+          "name": "axios",
+          "version": "1.2.1"
+        },
+        {
+          "name": "combined-stream",
+          "version": "1.0.8"
+        },
+        {
+          "name": "delayed-stream",
+          "version": "1.0.0"
+        },
+        {
+          "name": "follow-redirects",
+          "version": "1.15.2"
+        },
+        {
+          "name": "form-data",
+          "version": "4.0.0"
+        },
+        {
+          "name": "js-tokens",
+          "version": "4.0.0"
+        },
+        {
+          "name": "loose-envify",
+          "version": "1.4.0"
+        },
+        {
+          "name": "mime-db",
+          "version": "1.52.0"
+        },
+        {
+          "name": "mime-types",
+          "version": "2.1.35"
+        },
+        {
+          "name": "proxy-from-env",
+          "version": "1.1.0"
+        },
+        {
+          "name": "react",
+          "version": "18.2.0"
+        },
+        {
+          "name": "react-dom",
+          "version": "18.2.0"
+        },
+        {
+          "name": "react-spinners",
+          "version": "0.13.7"
+        },
+        {
+          "name": "scheduler",
+          "version": "0.23.0"
+        }
+      ]
+    }
+  ],
+  "licenseIssues": [],
+  "metaIssues": [],
+  "resolvedIssues": [],
+  "errors": []
+}

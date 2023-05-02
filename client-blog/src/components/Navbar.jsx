@@ -8,28 +8,25 @@ const Navbar = ()=>{
   const [toggles, setToggle] = useState(false);
 
   const handleMenus =()=>{  
-    const headerEl = document.querySelector(".header");
     const body = document.querySelector('body');
+    const header = document.getElementById('header');
 
-    headerEl.classList.toggle('nav-open');
+    header.classList.toggle('nav-open');
     body.classList.toggle('noscroll');
 
     setOpen(!open);
     setToggle(!toggles);
-    console.log("Clicked nav")
 
   };
     return (
-      <nav className={styles.header}>
-        <h2 className={styles.log}>Logo</h2>
-        <div className={toggles ? `${styles.nav} opn_nav` : `${styles.nav}` }>
-          <ul className={styles.nav_list}>
-            <li><Link to={'#'} className={styles.nav_link}>Contact</Link></li>
-            <li><Link to={'#'} className={styles.nav_link}>Careers</Link></li>
-            <li><Link to={'#'} className={styles.nav_link}>Blog</Link></li>
-            <li><Link to={'#'} className={styles.nav_link}>Team</Link></li>
+      <nav className={`${styles.header}`} id='header'>
+        <h2 className={styles.log}> Logo </h2>
+          <ul className={`${open ? 'translate-x-0 bg-indigo-400':'-translate-x-full'} transform-all ease-in transition duration-500 top-[60px] md:h-screen md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 `}>
+            <li className='md:ml-8 text-xl md:my-0 my-7'><Link to={'#'} className={styles.nav_link}>Contact</Link></li>
+            <li className='md:ml-8 text-xl md:my-0 my-7'><Link to={'#'} className={styles.nav_link}>Careers</Link></li>
+            <li className='md:ml-8 text-xl md:my-0 my-7'><Link to={'#'} className={styles.nav_link}>Blog</Link></li>
+            <li className='md:ml-8 text-xl md:my-0 my-7'><Link to={'#'} className={styles.nav_link}>Team</Link></li>
           </ul>
-        </div>
         <div className={styles.menu} onClick={handleMenus}>
           { open ?
             <AiOutlineClose size={'2em'}/>

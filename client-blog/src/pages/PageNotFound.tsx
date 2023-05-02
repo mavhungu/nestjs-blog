@@ -15,12 +15,12 @@ const PageNotFound = ()=>{
             </div>
           </div>
           <div className=''>
-           <img src='https://i.ibb.co/G9DC8S0/404-2.png' alt="ibb"/>
+            <img src='https://i.ibb.co/G9DC8S0/404-2.png' alt="ibb" />
           </div>
         </div>
       </div>
       <div className='hidden md:block'>
-        <img src='https://i.ibb.co/ck1SGFJ/Group.png' alt='ck1'/>
+        <img src='https://i.ibb.co/ck1SGFJ/Group.png' alt='ck1' />
       </div>
     </div>
   )
