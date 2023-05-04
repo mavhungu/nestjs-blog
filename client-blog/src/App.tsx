@@ -10,7 +10,7 @@ function App() {
     <Routes>
       <Route path='/' />
       <Route index element={<Home />} />
-      <Route path='blog-post/:idgit status -s' element={<BlogPost/>} />
+      <Route path='blog-post/:id' element={<BlogPost/>} />
       <Route path={'admin'} >
         <Route index element={<Login/>} />
         <Route path="register" element={<Register/>} />

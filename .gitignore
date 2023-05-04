@@ -1,5 +1,6 @@
 .vscode/*
-/.idea
+.idea
 node_modules/
 *.env
 server
+sandworm/

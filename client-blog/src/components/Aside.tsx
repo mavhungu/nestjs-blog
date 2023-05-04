@@ -14,8 +14,8 @@ const Aside = ()=>{
           </div>
 
           <div className='relative flex items-center justify-start mt-2 border-b border-gray-200 pb-3 space-y-3 space-x-4 w-full'>
-            <img src='https://images.unsplash.com/photo-1537498425277-c283d32ef9db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29tcHV0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='me' className='w-10 rounded ml-2 h-14' />
-            <div className='flex justify-start items-start flex-col space-y-2'>
+            <img src='https://images.unsplash.com/photo-1537498425277-c283d32ef9db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29tcHV0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='me' className='w-10 h-10 rounded-full ml-2' />
+            <div className='flex justify-start items-start flex-col space-y-1'>
               <p className='text-base font-semibold leading-4 text-left text-gray-800'>Trying image circle</p>
               <p className='text-sm leading-5 text-gray-600'>Mavhungu Ronewa</p>
             </div>

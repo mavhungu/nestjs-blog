@@ -157,4 +157,13 @@ a{
     margin-bottom: 4.8rem;
   }
 }
+@keyframes r {
+  0% { transform: rotate(0deg); } 100% { transform: rotate(45deg); }
+}
+#splash { transition: all .3s linear }
+#splash.hidden { opacity: 0; z-index: -1; visibility: hidden; }
+svg.gear { animation: r .5s infinite linear; }
+.gear {
+	animation: r .5s infinite linear;
+}
 
