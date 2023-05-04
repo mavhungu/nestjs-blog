@@ -2,27 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Wrapper } from '../components';
-import Gear from '../img/gear.svg';
-import { ReactComponent as SpinnerIcon } from '../img/gear.svg';
-
-
-interface PostData {
-  id: string;
-  title: string;
-  postBody: string;
-  createdAt: Date;
-  image: string;
-  tagId: string;
-  categoryId: string;
-  published:boolean;
-}
+import Post from '../interfaces/post';
 
 const BlogPost = ()=>{
 
-  const Loader = process.env.PUBLIC_URL +'/images/gear.svg';
-  const Spinner = process.env.PUBLIC_URL +'/images/spinner.svg';
   let { id } = useParams();
-  const [posts,setPost] = useState<PostData[]>([]);
+  const [posts,setPost] = useState<Post[]>([]);
   const [error,setError] = useState('');
   const [loading,setLoading] = useState(false);
 
@@ -30,11 +15,15 @@ const BlogPost = ()=>{
     (
       async()=>{
         setLoading(true);
-        const {data} = await axios.get<PostData>(`http://localhost:5000/api/blog-post/${id}`);
+        const {data} = await axios.get<Post>(`http://localhost:5000/api/blog-post/${id}`);
         setTimeout(()=>{
           setLoading(false);
         },3000);
         console.log(data);
+          if(data.length === 0){
+            setError('An error has occurred, please try again');
+          };
+          setPost(data);
       }
     )();
   },[id]);
@@ -53,15 +42,16 @@ const BlogPost = ()=>{
         </div>
       :(
         error ?
-          <div className="p-[10px]"></div>
+          <div className="p-[10px] justify-center items-center align-center">
+            <p className="text-white leading-40">{error}</p>
+          </div>
         :
           <div className="w-full flex p-[10px]">
             <div className='w-full sm:w-full md:w-full lg:w-4/5 rounded border border-gray-200'>
               <p className="text-3xl bold leading-none p-2">BlogPost page</p>
             </div>
-            <div className='hidden lg:block w-1/5 border rounded border border-gray-200 ml-2 flex flex-col justify-items-center'>
+            <div className='hidden lg:block w-1/5 border rounded border border-gray-200 ml-2'>
               <p className="leading-none text-gray">Tag and Category section</p>
-              <SpinnerIcon className='gear justify-items-center' />
             </div>
           </div>
         )

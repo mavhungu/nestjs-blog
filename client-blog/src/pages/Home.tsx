@@ -2,19 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Wrapper } from '../components';
-
-interface PostData {
-	id: string;
-	title: string;
-	summary: string;
-	createdAt: Date;
-	image: string;
-	slug: string;
-}
+import PostSummary from '../interfaces/post';
 
 const Home = ()=>{
 
-	const [getPost,setPost] = useState<PostData[]>([]);
+	const [getPost,setPost] = useState<PostSummary[]>([]);
 	const [loader,setLoader] = useState(false);
 	const [noPost, setNoPost] = useState(false);
 
@@ -22,7 +14,7 @@ const Home = ()=>{
     (
       async () => {
         setLoader(true);
-        const { data } = await axios.get<PostData[]>("http://localhost:5000/api/blog-post");
+        const { data } = await axios.get<PostSummary[]>("http://localhost:5000/api/blog-post");
         setTimeout(() => {
           setLoader(false);
         },3000);
