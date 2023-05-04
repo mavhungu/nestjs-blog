@@ -20,3 +20,5 @@ Frontend - React
 ## Authors and acknowledgment
 
 - [Mavhungu Ronewa](https://ronewam.netlify.app)
+- [@mavhungu](https://github.com/mavhungu)
+- [@mavhungu-ronewa](https://github.com/mavhungu-ronewa)
