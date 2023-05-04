@@ -2,12 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Wrapper } from '../components';
-import Post from '../interfaces/post';
+import { blogPost } from '../interfaces/post';
+import moment from 'moment';
 
 const BlogPost = ()=>{
 
   let { id } = useParams();
-  const [posts,setPost] = useState<Post[]>([]);
+  moment.locale();
+  moment().format();
+
+  const [autherId,setAuthorId] = useState('');
+  const [tagId,setTagId] = useState('');
+  const [catagoryId,setCategoryId] = useState('');
+  const [title,setTitle] = useState('');
+  const [image,setImage]= useState('');
+  const [postBody,setPostBody] = useState('');
+  const [createdAt,setCreatedAt] = useState('');
+
   const [error,setError] = useState('');
   const [loading,setLoading] = useState(false);
 
@@ -15,15 +26,16 @@ const BlogPost = ()=>{
     (
       async()=>{
         setLoading(true);
-        const {data} = await axios.get<Post>(`http://localhost:5000/api/blog-post/${id}`);
+        const { data } = await axios.get<blogPost>(`http://localhost:5000/api/blog-post/${id}`);
         setTimeout(()=>{
           setLoading(false);
         },3000);
         console.log(data);
-          if(data.length === 0){
-            setError('An error has occurred, please try again');
-          };
-          setPost(data);
+          setTitle(data.title);
+          setImage(data.image)
+          setCreatedAt(moment(data.createdAt).format('MMM DD'));
+          setPostBody(data.postBody);
+
       }
     )();
   },[id]);
@@ -49,6 +61,13 @@ const BlogPost = ()=>{
           <div className="w-full flex p-[10px]">
             <div className='w-full sm:w-full md:w-full lg:w-4/5 rounded border border-gray-200'>
               <p className="text-3xl bold leading-none p-2">BlogPost page</p>
+
+              <div>
+                <h2>{title}</h2>
+                <p>{createdAt}</p>
+                <p>{postBody}</p>
+              </div>
+
             </div>
             <div className='hidden lg:block w-1/5 border rounded border border-gray-200 ml-2'>
               <p className="leading-none text-gray">Tag and Category section</p>

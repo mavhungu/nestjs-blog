@@ -1,4 +1,4 @@
-export default interface PostSummary {
+export interface PostSummary {
 	id: string;
   title: string;
   summary: string;
@@ -7,7 +7,7 @@ export default interface PostSummary {
   slug: string;
 }
 
-export default interface Post {
+export interface blogPost {
   id: string;
   title: string;
   postBody: string;
