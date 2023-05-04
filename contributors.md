@@ -1,3 +1,3 @@
 # Contributors
 
-[@Mavhungu](https://github.com/mavhungu)
+- [@Mavhungu](https://github.com/mavhungu)
