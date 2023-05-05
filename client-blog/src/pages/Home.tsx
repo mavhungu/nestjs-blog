@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Wrapper } from '../components';
-import { PostSummary } from '../interfaces/post';
+import { PostSummary } from '../interfaces';
 
 const Home = ()=>{
 

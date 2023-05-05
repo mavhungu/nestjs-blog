@@ -6,7 +6,6 @@ import * as bcrypt from 'bcrypt';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateUserDto } from './dto';
 
-
 @Injectable()
 export class AdminService {
   constructor(private prisma: PrismaService) {}

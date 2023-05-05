@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Wrapper } from '../components';
-import { blogPost } from '../interfaces/post';
 import moment from 'moment';
+import { Wrapper } from '../components';
+import { blogPost } from '../interfaces';
 
 const BlogPost = ()=>{
 
@@ -35,7 +35,6 @@ const BlogPost = ()=>{
           setImage(data.image)
           setCreatedAt(moment(data.createdAt).format('MMM DD'));
           setPostBody(data.postBody);
-
       }
     )();
   },[id]);
