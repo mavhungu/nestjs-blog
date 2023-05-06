@@ -18,7 +18,7 @@ export class AppController {
   /**
    * Tags
    */
-  @Get('/tag/:id')
+  @Get('tag/:id')
   getTagById(@Param('id') id: string) {
     return this.appService.getTagById(id);
   }
