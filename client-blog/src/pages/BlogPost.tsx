@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
 import { Wrapper } from '../components';
-import { blogPost } from '../interfaces';
+import { blogPost, Category, Tag } from '../interfaces';
 
 const BlogPost = ()=>{
 
@@ -27,10 +27,12 @@ const BlogPost = ()=>{
       async()=>{
         setLoading(true);
         const { data } = await axios.get<blogPost>(`http://localhost:5000/api/blog-post/${id}`);
+        const name = await axios.get<Category>(`http://localhost:5000/api/blog-post/category/${data.categoryId}`);
         setTimeout(()=>{
           setLoading(false);
         },3000);
         console.log(data);
+        console.log(name);
           setTitle(data.title);
           setImage(data.image)
           setCreatedAt(moment(data.createdAt).format('MMM DD'));

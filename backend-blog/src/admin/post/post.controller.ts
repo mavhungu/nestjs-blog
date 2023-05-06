@@ -8,7 +8,14 @@ import {
   Param,
   ParseIntPipe,
 } from '@nestjs/common';
-import { CreatePostDto, CreateTagDto, UpdatePostDto, CreateCategoryDto, UpdateTagDto, UpdateCategoryDto } from '../dto';
+import {
+  CreatePostDto,
+  CreateTagDto,
+  UpdatePostDto,
+  CreateCategoryDto,
+  UpdateTagDto,
+  UpdateCategoryDto,
+} from '../dto';
 import { PostService } from './post.service';
 
 @Controller('admin/data')
@@ -16,10 +23,10 @@ export class PostController {
   constructor(private readonly postService: PostService) {}
 
   /**
-   * 
+   *
    * @param createPostDto
    * ? POSTS
-   * @returns 
+   * @returns
    */
   @Get('post/all')
   async getAllPost() {
@@ -52,14 +59,14 @@ export class PostController {
   /**
    * ? SETTING CATEGORY
    */
-  
+
   @Post('category/add')
-  async addCategory(@Body() createCategory: CreateCategoryDto){
+  async addCategory(@Body() createCategory: CreateCategoryDto) {
     return this.postService.addCategory(createCategory);
   }
 
   @Get('category')
-  async getAllCategory(){
+  async getAllCategory() {
     return this.postService.getAllCategory();
   }
 
@@ -71,47 +78,43 @@ export class PostController {
   @Patch('category/:id')
   async updateCategory(
     @Param('id') id: string,
-    @Body() updateCategory: UpdateCategoryDto
-  ){
+    @Body() updateCategory: UpdateCategoryDto,
+  ) {
     return this.postService.updateCategory(id, updateCategory);
   }
 
   @Delete('category/:id')
-  async deleteCategory(@Param('id') id: string){
+  async deleteCategory(@Param('id') id: string) {
     return this.postService.deleteCategory(id);
   }
-  
+
   /**
    * ? Tags
    * TODO: add all Tags routers
    */
-  
+
   @Post('tag/add')
   async addTag(@Body() createTagDto: CreateTagDto) {
     return await this.postService.addTag(createTagDto);
   }
 
   @Get('tag')
-  async getTags(){
+  async getTags() {
     return this.postService.getAllTag();
   }
-  
+
   @Get('tag/:id')
   async getTag(@Param('id') id: string) {
     return await this.postService.getTag(id);
   }
 
   @Patch('tag/:id')
-  async updateTag(
-    @Param('id') id: string,
-    @Body() updateTag: UpdateTagDto,
-  ) {
+  async updateTag(@Param('id') id: string, @Body() updateTag: UpdateTagDto) {
     return this.postService.updateTag(id, updateTag);
   }
 
   @Delete('tag/:id')
-  async removeTag(@Param('id') id: string){
+  async removeTag(@Param('id') id: string) {
     this.postService.removeTag(id);
   }
-
 }
