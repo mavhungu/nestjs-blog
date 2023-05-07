@@ -12,8 +12,8 @@ const BlogPost = ()=>{
   moment().format();
 
   const [autherId,setAuthorId] = useState('');
-  const [tagId,setTagId] = useState('');
-  const [catagoryId,setCategoryId] = useState('');
+  const [tagId,setTagName] = useState('');
+  const [catagoryId,setCategoryName] = useState('');
   const [title,setTitle] = useState('');
   const [image,setImage]= useState('');
   const [postBody,setPostBody] = useState('');
@@ -23,22 +23,26 @@ const BlogPost = ()=>{
   const [loading,setLoading] = useState(false);
 
   useEffect(()=>{
+    const controller = new AbortController();
+    const signal = controller.signal;
     (
       async()=>{
         setLoading(true);
-        const { data } = await axios.get<blogPost>(`http://localhost:5000/api/blog-post/${id}`);
-        const name = await axios.get<Category>(`http://localhost:5000/api/blog-post/category/${data.categoryId}`);
+        const { data } = await axios.get<blogPost>(`http://localhost:5000/api/blog-post/${id}`, { signal });
+        const categoryName = await axios.get<Category>(`http://localhost:5000/api/blog-post/category/${data.categoryId}`, { signal });
+        const tagName = await axios.get(`http://localhost:5000/api/blog-post/tag/${data.tagId}`, { signal });
         setTimeout(()=>{
           setLoading(false);
         },3000);
-        console.log(data);
-        console.log(name);
           setTitle(data.title);
-          setImage(data.image)
+          setImage(data.image);
+          setCategoryName(categoryName.data.name);
+          setTagName(tagName.data.name)
           setCreatedAt(moment(data.createdAt).format('MMM DD'));
           setPostBody(data.postBody);
       }
-    )();
+      )();
+      return ()=> { controller.abort(); };
   },[id]);
 
   return (
@@ -73,8 +77,8 @@ const BlogPost = ()=>{
             <div className='hidden lg:block w-1/5 rounded border border-gray-200 ml-2'>
               <p className="leading-none text-gray">Tag and Category section</p>
               <div className="flex flex-col">
-                <p>{tagId}</p>
-                <p>{catagoryId}</p>
+                <p className="my-2">{tagId}</p>
+                <p className="mb-2">{catagoryId}</p>
               </div>
             </div>
           </div>
