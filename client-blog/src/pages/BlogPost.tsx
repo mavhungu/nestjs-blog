@@ -64,8 +64,8 @@ const BlogPost = ()=>{
           </div>
         :
           <div className="w-full flex p-[10px]">
-            <div className='w-full sm:w-full md:w-full lg:w-4/5 rounded border border-gray-200'>
-              <div className="p-2">
+            <div className='w-full sm:w-full md:w-full lg:w-4/5'>
+              <div className="px-2">
                 <img src={image} alt={title} className="w-18 container mx-auto"/>
                   <div className="flex justify-between items-center my-2">
                     <h2 className="text-3xl bold leading-none mt-3">{title}</h2>
@@ -74,7 +74,7 @@ const BlogPost = ()=>{
                 <p className="">{postBody}</p>
               </div>
             </div>
-            <div className='hidden lg:block w-1/5 rounded border border-gray-200 ml-2'>
+            <div className='hidden lg:block w-1/5 ml-2'>
               <div className="flex flex-col">
                 <div className="bg-primary-600 flex justify-between items-center mb-2 py-2">
                   <p className="text-white text-center ml-2">Category</p>
@@ -84,7 +84,7 @@ const BlogPost = ()=>{
                 </div>
 
                 <div className="bg-primary-600 flex justify-between items-center py-2">
-                  <p className="text-white text-center ml-2">Category</p>
+                  <p className="text-white text-center ml-2">Tag</p>
                 </div>
                 <div className="text-center">
                   <p className="my-2">{tagId}</p>
