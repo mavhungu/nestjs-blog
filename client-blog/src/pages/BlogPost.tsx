@@ -75,10 +75,21 @@ const BlogPost = ()=>{
               </div>
             </div>
             <div className='hidden lg:block w-1/5 rounded border border-gray-200 ml-2'>
-              <p className="leading-none text-gray">Tag and Category section</p>
               <div className="flex flex-col">
-                <p className="my-2">{tagId}</p>
-                <p className="mb-2">{catagoryId}</p>
+                <div className="bg-primary-600 flex justify-between items-center mb-2 py-2">
+                  <p className="text-white text-center ml-2">Category</p>
+                </div>
+                <div className="mb-2 text-center">
+                  <p className="mb-2">{catagoryId}</p>
+                </div>
+
+                <div className="bg-primary-600 flex justify-between items-center py-2">
+                  <p className="text-white text-center ml-2">Category</p>
+                </div>
+                <div className="text-center">
+                  <p className="my-2">{tagId}</p>
+                </div>
+                
               </div>
             </div>
           </div>
