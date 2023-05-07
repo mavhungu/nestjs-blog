@@ -19,14 +19,24 @@ export class AppService {
     return post;
   }
 
-  async getTagById(id: string) {
-    const tag = await this.prismaService.tag.findUnique({
+  async getAuthorById(id: string) {
+    const author = await this.prismaService.user.findUnique({
       where: { id },
     });
-    if (!tag) {
+    if (!author) {
+      throw new NotFoundException('Requested user not found');
+    }
+    return author;
+  }
+
+  async getTagById(id: string) {
+    const tagName = await this.prismaService.tag.findUnique({
+      where: { id },
+    });
+    if (!tagName) {
       throw new NotFoundException("Requested tag doesn't exits");
     }
-    return tag;
+    return tagName;
   }
 
   async getCategoryById(id: string) {

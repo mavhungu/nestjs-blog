@@ -16,7 +16,15 @@ export class AppController {
   }
 
   /**
-   * Tags
+   * Get Author By Id
+   */
+  @Get('authot/:id')
+  getAuthorById(@Param('id') id: string) {
+    return this.appService.getAuthorById(id);
+  }
+
+  /**
+   * Get Tags
    */
   @Get('tag/:id')
   getTagById(@Param('id') id: string) {
@@ -24,7 +32,7 @@ export class AppController {
   }
 
   /**
-   * Category
+   * Get Category
    */
   @Get('category/:id')
   getCategoryById(@Param('id') id: string) {
