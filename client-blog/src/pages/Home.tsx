@@ -59,7 +59,7 @@ const Home = ()=>{
                       <p className="my-4 text-sm font-san font-normal">{moment(post.updatedAt).format('MMM Do, YYYY')}</p>
                       <h5 className='mt-2 font-bold font-xl font-san text-blacks mb-5 capitalize'>{post.title}</h5>
                       <p className='mb-4 text-white-400'>{post.summary}</p>
-                      <Link to={`/blog-post/${post.slug}`} className='pb-2 text-primary-600 hover:text-sky-400'>read more</Link>
+                      <Link to={`/blog-post/${post.slug}`} className='pb-2 text-primary-600 capitalize hover:text-primary-400'>read more</Link>
                     </div>
                 </div>
               ))
