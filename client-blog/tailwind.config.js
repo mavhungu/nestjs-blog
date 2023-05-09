@@ -9,7 +9,7 @@ module.exports = {
 	      hero: "url('img/omnifood-logo.png')",
 	    },
       fontFamily: {
-        sans: ['Barlow', 'sans-serif']
+        san: ['Barlow', 'sans-serif']
       },
       colors: {
         primary: "#00040f",
@@ -22,6 +22,7 @@ module.exports = {
         secondary: "#00f6ff",
         links: "#61dafb",
         white: "#fff",
+        blacks: "rgb(0, 0, 0)",
         header: "rgba(9, 151, 124, 0.1)",
         dimWhite: "rgba(255, 255, 255, 0.7)",
         dimBlue: "rgba(9, 151, 124, 0.1)",
