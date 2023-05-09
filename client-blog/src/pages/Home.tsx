@@ -30,11 +30,6 @@ const Home = ()=>{
     )();
   }, []);
 
-  // const getUpdatedAt(data: Date)=>{
-  //   const updated = moment(data).format('MM Do YYYY');
-  //   return updated;
-  // }
-
   return (
     <Wrapper>
       {
@@ -61,9 +56,9 @@ const Home = ()=>{
                 <div className='rounded overflow-hidden pb-4 mb-6 bg-white-500 shadow bordered' key={post.id}>
                   <img src={post.image} alt={post.title}  className='w-full'/>
                     <div className="mx-4">
-                      <p className="my-4">{moment(post.updatedAt).format('MMM Do, YYYY')}</p>
-                      <h2 className='mt-2 text-gray-800 font-bold mb-3'>{post.title}</h2>
-                      <p className='mb-2 text-white-400'>{post.summary}</p>
+                      <p className="my-4 text-sm font-san font-normal">{moment(post.updatedAt).format('MMM Do, YYYY')}</p>
+                      <h5 className='mt-2 font-bold font-xl font-san text-blacks mb-5 capitalize'>{post.title}</h5>
+                      <p className='mb-4 text-white-400'>{post.summary}</p>
                       <Link to={`/blog-post/${post.slug}`} className='pb-2 text-primary-600 hover:text-sky-400'>read more</Link>
                     </div>
                 </div>
