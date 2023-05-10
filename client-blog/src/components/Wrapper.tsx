@@ -1,5 +1,5 @@
 import React from 'react';
-import { Aside, Navbar, Footer } from '.';
+import { Aside, Navbar } from '.';
 
 type WrapperProps = {
     children: React.ReactNode;
@@ -15,7 +15,6 @@ const Wrapper = (props: WrapperProps)=>{
               {props.children}
             </main>
         </div>
-      <Footer/>
     </div>
   )
 }
