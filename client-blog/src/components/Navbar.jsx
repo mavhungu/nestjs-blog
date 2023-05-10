@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import logo from "../img/omnifood-logo.png";
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import styles from '../styles/Navbar.module.css';
 
@@ -20,7 +21,9 @@ const Navbar = ()=>{
   };
     return (
       <nav className={`${styles.header}`} id='header'>
-        <h2 className={styles.log}>Logo</h2>
+        <Link to="/" className={styles.log}>
+          <img className="logo" src={logo} alt="ronewa logo"/>
+        </Link>
           <ul className={`${open ? 'translate-x-0 bg-indigo-400':'-translate-x-full'} transform-all ease-in transition duration-500 top-[60px] md:h-screen md:flex md:items-center md:pb-0 pb-12 absolute md:static md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9`}>
             <li className='md:ml-8 text-xl md:my-0 my-7'><Link to={'#'} className={styles.nav_link}>Contact</Link></li>
             <li className='md:ml-8 text-xl md:my-0 my-7'><Link to={'#'} className={styles.nav_link}>Careers</Link></li>
