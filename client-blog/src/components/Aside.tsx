@@ -4,8 +4,8 @@ import { RiSearchLine } from 'react-icons/ri';
 
 const Aside = ()=>{
   return (
-    <div className='hidden lg:flex flex-col w-1/5 h-[100vh] sticky top-0'>
-      <div className='mx-2'>
+    <div className='hidden lg:flex flex-col w-[25%] h-[100vh] sticky top-0 ml-12'>
+      <div className='mr-2'>
         <Search />
         <div className="">
           <div className="bg-primary-600 flex justify-between items-center py-4">
@@ -14,10 +14,18 @@ const Aside = ()=>{
           </div>
 
           <div className='relative flex items-center justify-start mt-2 border-b border-gray-200 pb-3 space-y-3 space-x-4 w-full'>
-            <img src='https://images.unsplash.com/photo-1537498425277-c283d32ef9db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29tcHV0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='me' className='w-10 h-10 rounded-full ml-2' />
+            <img className='w-12 h-12 rounded-full ml-2' src='https://images.unsplash.com/photo-1537498425277-c283d32ef9db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Y29tcHV0ZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60' alt='me' />
             <div className='flex justify-start items-start flex-col space-y-1'>
               <p className='text-base font-semibold leading-4 text-left text-gray-800'>Trying image circle</p>
               <p className='text-sm leading-5 text-gray-600'>Mavhungu Ronewa</p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-x-6">
+            <img className="h-12 w-12 rounded-full ml-2" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="d" />
+            <div>
+              <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">Leslie Alexander</h3>
+              <p className="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
             </div>
           </div>
           
