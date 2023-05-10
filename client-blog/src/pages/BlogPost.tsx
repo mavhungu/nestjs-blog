@@ -5,6 +5,10 @@ import moment from 'moment';
 import { Wrapper } from '../components';
 import { blogPost, Category, Tag } from '../interfaces';
 
+import { AiOutlineInstagram } from 'react-icons/ai'
+import { FaFacebook, FaLinkedin } from 'react-icons/fa'
+import { BsTwitter } from 'react-icons/bs'
+
 const BlogPost = ()=>{
 
   let { id } = useParams();
@@ -38,7 +42,7 @@ const BlogPost = ()=>{
           setImage(data.image);
           setCategoryName(categoryName.data.name);
           setTagName(tagName.data.name)
-          setCreatedAt(moment(data.createdAt).format('MMM DD'));
+          setCreatedAt(moment(data.createdAt).format('MMM Do, YYYY'));
           setPostBody(data.postBody);
       }
       )();
@@ -63,18 +67,39 @@ const BlogPost = ()=>{
             <p className="text-white leading-40">{error}</p>
           </div>
         :
-          <div className="w-full flex p-[10px]">
+          <div className="w-full flex p-[10px] mr-16">
+            
             <div className='w-full sm:w-full md:w-full lg:w-4/5'>
-              <div className="px-2">
-                <img src={image} alt={title} className="w-18 container mx-auto"/>
-                  <div className="flex justify-between items-center my-2">
-                    <h2 className="text-3xl bold leading-none mt-3">{title}</h2>
-                    <p>{createdAt}</p>
+              <div className="px-12 flex-col justify-center">
+                <div className="mb-16">
+                  <h1 className="text-5xl mb-4 font-bold leading-[50px] text-blacks capitalize font-xl">{title}</h1>
+                  <div className="w-6 h-[3px] mt-10 mb-[60px] bg-primary-600"/>
+                  <div className="flex w-full space-x-6 items-center">
+                    <img className="h-[75px] w-auto rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="d" />
+                      <div>
+                        <h3 className="text-base font-semibold leading-none text-gray-900 text-undeline">Leslie Alexander</h3>
+                        <p className="text-sm font-normal leading-[25px]">{createdAt}</p>
+                        <div className="flex justify-center items-center gap-x-3">
+                          <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}}><FaLinkedin style={{color:'blue'}}/></Link>
+                          <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}}><BsTwitter style={{color: 'red'}}/></Link>
+                          <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}}><FaFacebook/></Link>
+                          <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}}><AiOutlineInstagram/></Link>
+                        </div>
+                      </div>
                   </div>
-                <p className="">{postBody}</p>
+                </div>
+                <div className="container mx-auto px-auto">
+                  <div className="max-w-[700px] block">
+                    <img src={image} alt={title} className="w-full relative inset-0 object-center md:object-center"/>
+                  </div>
+                </div>
+                  <div className="mt-16">
+                    <p className="">{postBody}</p>
+                  </div>
               </div>
             </div>
-            <div className='hidden lg:block w-1/5 ml-2'>
+
+            <div className='hidden lg:block w-1/5 ml-2 mr-16'>
               <div className="flex flex-col">
                 <div className="bg-primary-600 flex justify-between items-center mb-2 py-2">
                   <p className="text-white text-center ml-2">Category</p>
