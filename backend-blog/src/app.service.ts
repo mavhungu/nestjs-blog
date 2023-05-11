@@ -19,6 +19,30 @@ export class AppService {
     return post;
   }
 
+  async searchPost(id: string) {
+    const data = await this.prismaService.post.findMany({
+      where: {
+        AND: [
+          {
+            postBody: {
+              contains: id,
+              mode: 'insensitive',
+            },
+          },
+          {
+            published: {
+              equals: true,
+            },
+          },
+        ],
+      },
+    });
+    if (!data) {
+      throw new NotFoundException('Request data not found');
+    }
+    return data;
+  }
+
   async getAuthorById(id: string) {
     const author = await this.prismaService.user.findUnique({
       where: { id },

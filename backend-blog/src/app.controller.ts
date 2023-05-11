@@ -38,4 +38,12 @@ export class AppController {
   getCategoryById(@Param('id') id: string) {
     return this.appService.getCategoryById(id);
   }
+
+  /**
+   * Search Post
+   */
+  @Get('search/:id')
+  searchPost(@Param('id') id: string) {
+    return this.appService.searchPost(id);
+  }
 }
