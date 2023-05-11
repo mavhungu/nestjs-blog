@@ -6,7 +6,13 @@ export class AppService {
   constructor(private prismaService: PrismaService) {}
 
   async getAllPosts() {
-    return await this.prismaService.post.findMany();
+    return await this.prismaService.post.findMany({
+      where: {
+        published: {
+          equals: true,
+        },
+      },
+    });
   }
 
   async getPostById(id: string) {
@@ -20,7 +26,7 @@ export class AppService {
   }
 
   async searchPost(id: string) {
-    const data = await this.prismaService.post.findMany({
+    const result = await this.prismaService.post.findMany({
       where: {
         AND: [
           {
@@ -37,10 +43,10 @@ export class AppService {
         ],
       },
     });
-    if (!data) {
+    if (!result) {
       throw new NotFoundException('Request data not found');
     }
-    return data;
+    return result;
   }
 
   async getAuthorById(id: string) {
