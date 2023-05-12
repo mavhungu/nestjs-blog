@@ -12,10 +12,7 @@ import { BsTwitter } from 'react-icons/bs'
 const BlogPost = ()=>{
 
   let { id } = useParams();
-  moment.locale();
-  moment().format();
 
-  const [autherId,setAuthorId] = useState('');
   const [tagId,setTagName] = useState('');
   const [catagoryId,setCategoryName] = useState('');
   const [title,setTitle] = useState('');
@@ -34,10 +31,14 @@ const BlogPost = ()=>{
         setLoading(true);
         const { data } = await axios.get<blogPost>(`http://localhost:5000/api/blog-post/${id}`, { signal });
         const categoryName = await axios.get<Category>(`http://localhost:5000/api/blog-post/category/${data.categoryId}`, { signal });
-        const tagName = await axios.get(`http://localhost:5000/api/blog-post/tag/${data.tagId}`, { signal });
+        const tagName = await axios.get<Tag>(`http://localhost:5000/api/blog-post/tag/${data.tagId}`, { signal });
         setTimeout(()=>{
           setLoading(false);
         },3000);
+
+        if(!data) {
+          setError('Unable to find requested data');
+        }
           setTitle(data.title);
           setImage(data.image);
           setCategoryName(categoryName.data.name);
