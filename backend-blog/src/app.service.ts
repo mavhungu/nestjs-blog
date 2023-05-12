@@ -26,9 +26,9 @@ export class AppService {
   }
 
   async searchPost(id: string) {
-    const result = await this.prismaService.post.findMany({
+    const data = await this.prismaService.post.findMany({
       where: {
-        AND: [
+        OR: [
           {
             postBody: {
               contains: id,
@@ -36,17 +36,21 @@ export class AppService {
             },
           },
           {
-            published: {
-              equals: true,
+            summary: {
+              contains: id,
+              mode: 'insensitive',
             },
           },
         ],
+        AND: {
+          published: true,
+        },
       },
     });
-    if (!result) {
-      throw new NotFoundException('Request data not found');
+    if (!data) {
+      throw new NotFoundException('Requested data not found');
     }
-    return result;
+    return data;
   }
 
   async getAuthorById(id: string) {
