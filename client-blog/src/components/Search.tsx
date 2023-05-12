@@ -1,33 +1,14 @@
 import React,{ useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CgSearch } from 'react-icons/cg';
-import axios, { CanceledError } from 'axios';
 
 const Search = ()=> {
+  const navigate = useNavigate();
   const [search, setSearch] = useState('');
-  const [searched, setSearched] = useState('');
-  const [error, setError ] = useState('');
-  console.log(search)
 
   const submitSearch =()=> {
-    //e.preventDefault();
-    
-    (()=>{
-      const controller = new AbortController();
-      axios.get(`http://localhost:5000/api/blog-post/search/${search}`,{ signal: controller.signal})
-      .then((res)=>{ 
-        setSearched(res.data)
-        console.log(search)
-        console.log("coming back data :", res);
-      })
-      .catch((err)=>{
-        if(err instanceof CanceledError) return;
-          setError(err.message);
-          console.log(err.message)
-      });
-      return ()=> controller.abort();
-    })();
+    navigate(`/blog-post/search/${search}`);
     setSearch('');
-    console.log(error)
   }
   return (
     <div className='flex justify-start items-center py-7 relative'>
