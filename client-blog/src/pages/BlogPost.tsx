@@ -68,8 +68,7 @@ const BlogPost = ()=>{
             <p className="text-white leading-40">{error}</p>
           </div>
         :
-          <div className="w-full flex p-[10px] mr-16">
-            
+          <div className="w-full flex p-[10px]">
             <div className='w-full sm:w-full md:w-full lg:w-4/5'>
               <div className="px-12 flex-col justify-center">
                 <div className="mb-16">
@@ -100,7 +99,7 @@ const BlogPost = ()=>{
               </div>
             </div>
 
-            <div className='hidden lg:block w-1/5 ml-2 mr-16'>
+            <div className='hidden lg:block w-1/5 ml-2'>
               <div className="flex flex-col">
                 <div className="bg-primary-600 flex justify-between items-center mb-2 py-2">
                   <p className="text-white text-center ml-2">Category</p>
@@ -115,7 +114,6 @@ const BlogPost = ()=>{
                 <div className="text-center">
                   <p className="my-2">{tagId}</p>
                 </div>
-                
               </div>
             </div>
           </div>
