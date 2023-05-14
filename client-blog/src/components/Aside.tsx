@@ -4,7 +4,7 @@ import { RiSearchLine } from 'react-icons/ri';
 
 const Aside = ()=>{
   return (
-    <div className='hidden lg:flex flex-col w-[25%] h-[100vh] sticky top-0 md:ml-5 lg:ml-8 xl:ml-12'>
+    <div className='hidden lg:flex flex-col w-[25%] h-[100vh] sticky top-0'>
       <div className='mr-2'>
         <Search />
         <div className="">
