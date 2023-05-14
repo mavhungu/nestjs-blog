@@ -18,13 +18,11 @@ const SearchPost = () => {
       axios.get<PostSummary[]>(`http://localhost:5000/api/blog-post/search/${id}`,{ signal: controller.signal})
       .then((res)=>{ 
         setSearched(res.data)
-        console.log("coming back data :", res);
         setLoading(false);
       })
       .catch((err)=>{
         if(err instanceof CanceledError) return;
           setError(err.message);
-          console.log(err.message)
           setLoading(false);
       });
       return ()=> controller.abort();

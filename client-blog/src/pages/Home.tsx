@@ -21,7 +21,6 @@ const Home = ()=>{
         setTimeout(() => {
           setLoader(false);
         },3000);
-        console.log(data);
           if(data.length === 0){
             setNoPost(true);
           };
