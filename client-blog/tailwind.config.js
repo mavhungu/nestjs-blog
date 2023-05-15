@@ -5,8 +5,8 @@ module.exports = {
   ],
   theme: {
     extend: {
-	    backgroundImage: {
-	      hero: "url('img/omnifood-logo.png')",
+      backgroundImage: {
+	      logo: "url('img/logo.png')",
 	    },
       fontFamily: {
         san: ['Barlow', 'sans-serif']
