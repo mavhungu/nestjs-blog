@@ -1,5 +1,6 @@
 ## Blog Application
 Application to share knowledge and insight
+
 ## Requirements
 ```bash
 1. Nodejs installed
@@ -17,6 +18,7 @@ Application to share knowledge and insight
 Backend - Nestjs
 Frontend - React
 ```
+## Ronewa
 ## Authors and acknowledgment
 
 - [@mavhungu](https://github.com/mavhungu)
