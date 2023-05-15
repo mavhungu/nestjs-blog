@@ -7,6 +7,7 @@ const Search = ()=> {
   const [search, setSearch] = useState('');
 
   const submitSearch =()=> {
+    if(search === '') return;
     navigate(`/blog-post/search/${search}`);
     setSearch('');
   }
