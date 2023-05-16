@@ -35,13 +35,31 @@ body {
 a{
   cursor: pointer;
 }
+.preloader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 999999;
+  background-color: #ffffff;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+}
 svg.gear { 
   animation: r .5s infinite linear; 
 }
 .gear {
   animation: r .5s infinite linear;
 }
-
+#splash { 
+  transition: all .3s linear; 
+}
+#splash.hidden { 
+  opacity: 0; z-index: -1; 
+  visibility: hidden; 
+}
 @keyframes r {
   0% { 
     transform: rotate(0deg); 
@@ -50,5 +68,3 @@ svg.gear {
     transform: rotate(45deg); 
   }
 }
-
-
