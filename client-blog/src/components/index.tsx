@@ -6,7 +6,6 @@ import Wrapper from "./Wrapper";
 import Footer from './Footer';
 import Spinner from './Spinner';
 
-
 export {
   Navbar,Wrapper, Card, Aside, Search, Footer, Spinner
 }
