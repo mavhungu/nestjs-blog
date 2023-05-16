@@ -1,12 +1,12 @@
 import Navbar from "./Navbar";
 import Card from "./Card";
 import Aside from "./Aside";
-import Main from "./Mains";
 import Search from "./Search";
 import Wrapper from "./Wrapper";
 import Footer from './Footer';
+import Spinner from './Spinner';
 
 
 export {
-  Navbar,Wrapper, Card, Aside, Main, Search, Footer
+  Navbar,Wrapper, Card, Aside, Search, Footer, Spinner
 }

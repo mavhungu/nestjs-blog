@@ -23,16 +23,16 @@ const Navbar = ()=>{
                 <AiOutlineClose size={'2em'}/>
               </button>
               <ul className="flex text-3xl md:text-base items-center py-2 md:flex flex-col md:flex-row justify-center fixed md:relative top-0 bottom-0 left-0 right-0 bg-white md:bg-transparent z-20">
-                <li className="text-indigo-800 text-lg hover:text-gray-800 cursor-pointer md:ml-10 pt-10 md:pt-0">
+                <li className="text-gray-800 text-lg hover:text-gray-800 cursor-pointer md:ml-10 pt-10 md:pt-0">
                   <Link to="#!">Gallery</Link>
                 </li>
-                <li className="text-indigo-800 text-lg hover:text-gray-800 cursor-pointer md:ml-10 pt-10 md:pt-0">
+                <li className="text-gray-800 text-lg hover:text-gray-800 cursor-pointer md:ml-10 pt-10 md:pt-0">
                   <Link to="#!">Blog</Link>
                 </li>
-                <li className="text-indigo-800 text-lg hover:text-gray-800 cursor-pointer md:ml-10 pt-10 md:pt-0">
+                <li className="text-gray-800 text-lg hover:text-gray-800 cursor-pointer md:ml-10 pt-10 md:pt-0">
                   <Link to="#!">Team</Link>
                 </li>
-                <li className="text-indigo-800 text-lg hover:text-gray-800 cursor-pointer md:ml-10 pt-10 md:pt-0">
+                <li className="text-gray-800 text-lg hover:text-gray-800 cursor-pointer md:ml-10 pt-10 md:pt-0">
                   <Link to="#!">Contact</Link>
                 </li>
               </ul>
