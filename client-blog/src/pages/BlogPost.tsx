@@ -29,9 +29,9 @@ const BlogPost = ()=>{
     (
       async()=>{
         setLoading(true);
-        const { data } = await axios.get<blogPost>(`http://localhost:5000/api/blog-post/${id}`, { signal });
-        const categoryName = await axios.get<Category>(`http://localhost:5000/api/blog-post/category/${data.categoryId}`, { signal });
-        const tagName = await axios.get<Tag>(`http://localhost:5000/api/blog-post/tag/${data.tagId}`, { signal });
+        const { data } = await axios.get<blogPost>(`/blog-post/${id}`, { signal });
+        const categoryName = await axios.get<Category>(`/blog-post/category/${data.categoryId}`, { signal });
+        const tagName = await axios.get<Tag>(`/blog-post/tag/${data.tagId}`, { signal });
         setTimeout(()=>{
           setLoading(false);
         },3000);

@@ -6,8 +6,6 @@ import { Wrapper } from '../components';
 import { PostSummary } from '../interfaces';
 
 const Home = ()=>{
-  moment.locale();
-  moment().format();
 
 	const [getPost,setPost] = useState<PostSummary[]>([]);
 	const [loader,setLoader] = useState(false);
@@ -17,7 +15,7 @@ const Home = ()=>{
     (
       async () => {
         setLoader(true);
-        const { data } = await axios.get<PostSummary[]>("http://localhost:5000/api/blog-post");
+        const { data } = await axios.get<PostSummary[]>("/blog-post");
         setTimeout(() => {
           setLoader(false);
         },3000);

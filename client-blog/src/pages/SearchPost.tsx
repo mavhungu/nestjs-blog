@@ -15,7 +15,7 @@ const SearchPost = () => {
     (()=>{
       const controller = new AbortController();
       setLoading(true);
-      axios.get<PostSummary[]>(`http://localhost:5000/api/blog-post/search/${id}`,{ signal: controller.signal})
+      axios.get<PostSummary[]>(`/blog-post/search/${id}`,{ signal: controller.signal})
       .then((res)=>{ 
         setSearched(res.data)
         setLoading(false);
