@@ -4,6 +4,7 @@ import axios from 'axios';
 import moment from 'moment';
 import { Wrapper } from '../components';
 import { PostSummary } from '../interfaces';
+import { BsArrowRight } from 'react-icons/bs';
 
 const Home = ()=>{
 
@@ -56,7 +57,10 @@ const Home = ()=>{
                       <p className="my-4 text-sm font-san font-normal">{moment(post.updatedAt).format('MMM Do, YYYY')}</p>
                       <h5 className='mt-2 font-bold font-xl font-san text-blacks mb-5 capitalize'>{post.title}</h5>
                       <p className='mb-4 text-white-400'>{post.summary}</p>
-                      <Link to={`/blog-post/${post.slug}`} className='pb-2 text-primary-600 capitalize hover:text-primary-400'>read more</Link>
+                      <Link to={`/blog-post/${post.slug}`} className='flex pb-2 text-primary-600 hover:text-primary-400'>
+                        <span className="capitalize">read more</span>
+                        <span className="ml-1 transition ease-in-out hover:translate-x-6 hover:scale-x-110 duration-300"><BsArrowRight/></span>
+                      </Link>
                     </div>
                 </div>
               ))
