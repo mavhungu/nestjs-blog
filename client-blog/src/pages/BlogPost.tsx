@@ -82,8 +82,8 @@ const BlogPost = ()=>{
                         <div className="flex justify-center items-center gap-x-3">
                           <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}}><FaLinkedin style={{color:'blue'}}/></Link>
                           <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}}><BsTwitter style={{color: 'red'}}/></Link>
-                          <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}}><FaFacebook/></Link>
-                          <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}}><AiOutlineInstagram/></Link>
+                          <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}} className={'bg-blue-600'}><FaFacebook/></Link>
+                          <Link to="#" style={{borderRadius:'50%', border: '1px solid rgb(76,15,251)',padding: '8px',}}><AiOutlineInstagram className={'bg-rose-600'}/></Link>
                         </div>
                       </div>
                   </div>

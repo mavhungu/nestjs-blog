@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import apiClient, { CanceledError, AxiosError } from '../services/api-service';
 import moment from 'moment';
 import { Wrapper } from '../components';
 import { PostSummary } from '../interfaces';
@@ -11,19 +11,39 @@ const Home = ()=>{
 	const [getPost,setPost] = useState<PostSummary[]>([]);
 	const [loader,setLoader] = useState(false);
 	const [noPost, setNoPost] = useState(false);
+  const [error,setError] = useState('');
 
   useEffect(() => {
     (
-      async () => {
-        setLoader(true);
-        const { data } = await axios.get<PostSummary[]>("/blog-post");
-        setTimeout(() => {
-          setLoader(false);
-        },3000);
+      // async () => {
+      //   setLoader(true);
+      //   const { data } = await apiClient.get<PostSummary[]>("/blog-post");
+      //   setTimeout(() => {
+      //     setLoader(false);
+      //   },3000);
+      //     if(data.length === 0){
+      //       setNoPost(true);
+      //     };
+      //       setPost(data);
+      // }
+      async () =>{
+        const controller = new AbortController();
+        try{
+          setLoader(true);
+          const { data } = await apiClient.get<PostSummary[]>("/blog-post", {signal: controller.signal});
           if(data.length === 0){
             setNoPost(true);
-          };
-            setPost(data);
+            setLoader(false);
+          }
+          setPost(data);
+          setLoader(false);
+        }
+        catch(err){
+          if( err instanceof CanceledError) return;
+          setError((err as AxiosError).message);
+          setLoader(false);
+        }
+        return ()=> { controller.abort(); };
       }
     )();
   }, []);
@@ -43,6 +63,11 @@ const Home = ()=>{
             </p>
 					</div>
 				:(
+          error ?
+            <div className="p-[10px] justify-center items-center align-center">
+              <p className="text-white leading-40">{error}</p>
+            </div>
+          :(
 					noPost ?
 						<div className='flex align-center pb-4 p-[10px] gap-2'>
 							<p className="text-3xl justify-center">No data has been found at the moment</p>
@@ -66,6 +91,7 @@ const Home = ()=>{
               ))
             }
           </div>
+          )
 				)
       }
     </Wrapper>
