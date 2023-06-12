@@ -3,4 +3,4 @@ import axios, { CanceledError, AxiosError } from 'axios';
 export default axios.create({
 	baseURL: 'http://localhost:5000/api',
 });
-export  { CanceledError, AxiosError }
+export  { CanceledError, AxiosError };
