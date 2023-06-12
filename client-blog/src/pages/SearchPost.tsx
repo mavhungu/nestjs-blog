@@ -10,6 +10,7 @@ const SearchPost = () => {
   const { id } = useParams();
   const [isLoading, setLoading] = useState(false);
   const [searched, setSearched] = useState<PostSummary[]>([]);
+  const [noPosts, setNoPosts] = useState(false);
   const [error, setError ] = useState('');
 
   useEffect(()=>{
@@ -17,8 +18,13 @@ const SearchPost = () => {
       const controller = new AbortController();
       setLoading(true);
       axios.get<PostSummary[]>(`/blog-post/search/${id}`,{ signal: controller.signal})
-      .then((res)=>{ 
-        setSearched(res.data)
+      .then((res)=>{
+        const posts = res.data;
+        if(posts.length === 0){
+          setNoPosts(true);
+          setLoading(false);
+        };
+        setSearched(posts);
         setLoading(false);
       })
       .catch((err)=>{
@@ -45,27 +51,33 @@ const SearchPost = () => {
         : (
           error ?
             <div className="p-[10px] justify-center items-center align-center">
-              <p className="text-white leading-40">{error}</p>
+              <p className="leading-40">{error}</p>
             </div>
-          :
-          <div className='grid pb-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[10px] gap-6'>
-            {
-              searched.map((post)=>(
-                <div className='rounded overflow-hidden pb-4 mb-6 bg-white-500 shadow bordered' key={post.id}>
-                  <img src={post.image} alt={post.title}  className='w-full'/>
-                    <div className="mx-4">
-                      <p className="my-4 text-sm font-san font-normal">{moment(post.updatedAt).format('MMM Do, YYYY')}</p>
-                      <h5 className='mt-2 font-bold font-xl font-san text-blacks mb-5 capitalize'>{post.title}</h5>
-                      <p className='mb-4 text-white-400'>{post.summary}</p>
-                      <Link to={`/blog-post/${post.slug}`} className='flex pb-2 text-primary-600 hover:text-primary-400'>
-                        <span className="capitalize">read more</span>
-                        <span className="ml-1 transition ease-in-out hover:translate-x-6 hover:scale-x-110 duration-300"><BsArrowRight/></span>
-                      </Link>
+          : (
+            noPosts ?
+              <div className="p-[10px] justify-center items-center align-center">
+                <p className="leading-40">Nothing has been found</p>
+              </div>
+            :
+              <div className='grid pb-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[10px] gap-6'>
+                {
+                  searched.map((post)=>(
+                    <div className='rounded overflow-hidden pb-4 mb-6 bg-white-500 shadow bordered' key={post.id}>
+                      <img src={post.image} alt={post.title}  className='w-full'/>
+                        <div className="mx-4">
+                          <p className="my-4 text-sm font-san font-normal">{moment(post.updatedAt).format('MMM Do, YYYY')}</p>
+                          <h5 className='mt-2 font-bold font-xl font-san text-blacks mb-5 capitalize'>{post.title}</h5>
+                          <p className='mb-4 text-white-400'>{post.summary}</p>
+                          <Link to={`/blog-post/${post.slug}`} className='flex pb-2 text-primary-600 hover:text-primary-400'>
+                            <span className="capitalize">read more</span>
+                            <span className="ml-1 transition ease-in-out hover:translate-x-6 hover:scale-x-110 duration-300"><BsArrowRight/></span>
+                          </Link>
+                        </div>
                     </div>
-                </div>
-              ))
-            }
-          </div>
+                  ))
+                }
+              </div>
+            )
         )
       }
     </Wrapper>
