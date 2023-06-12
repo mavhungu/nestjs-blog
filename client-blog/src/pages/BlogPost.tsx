@@ -16,8 +16,8 @@ const BlogPost = ()=>{
   //Get param id/value
   let { id } = useParams();
 
-  const [tagId,setTagName] = useState('');
-  const [catagoryId,setCategoryName] = useState('');
+  // const [tagId,setTagName] = useState('');
+  // const [catagoryId,setCategoryName] = useState('');
   const [title,setTitle] = useState('');
   const [image,setImage]= useState('');
   const [postBody,setPostBody] = useState('');
@@ -100,8 +100,8 @@ const BlogPost = ()=>{
       async()=>{
         setLoading(true);
         const { data } = await apiClient.get<blogPost>(`/blog-post/${id}`, { signal });
-        const categoryName = await axios.get<Category>(`/blog-post/category/${data.categoryId}`, { signal });
-        const tagName = await axios.get<Tag>(`/blog-post/tag/${data.tagId}`, { signal });
+        // const categoryName = await axios.get<Category>(`/blog-post/category/${data.categoryId}`, { signal });
+        // const tagName = await axios.get<Tag>(`/blog-post/tag/${data.tagId}`, { signal });
         setTimeout(()=>{
           setLoading(false);
         },3000);
@@ -112,10 +112,10 @@ const BlogPost = ()=>{
           //setText(data.postBody);
           setTitle(data.title);
           setImage(data.image);
-          setCategoryName(categoryName.data.name);
-          setTagName(tagName.data.name)
           setCreatedAt(moment(data.createdAt).format('MMM Do, YYYY'));
           setPostBody(data.postBody);
+          // setCategoryName(categoryName.data.name);
+          // setTagName(tagName.data.name)
           //postTextToSpeechApi(data.postBody);
       }
       )();
@@ -181,7 +181,7 @@ const BlogPost = ()=>{
               </div>
             </div>
 
-            <div className='hidden lg:block w-1/5 ml-2'>
+            {/* <div className='hidden lg:block w-1/5 ml-2'>
               <div className="flex flex-col">
                 <div className="bg-primary-600 flex justify-between items-center mb-2 py-2">
                   <p className="text-white text-center ml-2">Category</p>
@@ -197,7 +197,7 @@ const BlogPost = ()=>{
                   <p className="my-2">{tagId}</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         )
       }
