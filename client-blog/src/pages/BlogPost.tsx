@@ -4,15 +4,15 @@ import apiClient from '../services/api-service';
 import moment from 'moment';
 import axios from 'axios';
 import { Wrapper } from '../components';
-import { blogPost, Category, Tag, postTextToSpeech, getTextToSpeech } from '../interfaces';
+import { blogPost, Category, Tag } from '../interfaces';
 
-import { AiOutlineInstagram, AiOutlinePause } from 'react-icons/ai'
+import { AiOutlineInstagram } from 'react-icons/ai'
 import { FaFacebook, FaLinkedinIn } from 'react-icons/fa'
-import { BsTwitter, BsPlay } from 'react-icons/bs'
+import { BsTwitter } from 'react-icons/bs'
 
 const BlogPost = ()=>{
   
-  const rapid_key = process.env.REACT_APP_RAPID_API_KEY || '';
+  //const rapid_key = process.env.REACT_APP_RAPID_API_KEY || '';
   //Get param id/value
   let { id } = useParams();
 
@@ -27,71 +27,71 @@ const BlogPost = ()=>{
   const [error,setError] = useState('');
   const [loading,setLoading] = useState(false);
 
-  const [text, setText] = useState('');
-  const [speechId, setSpeechId] = useState('');
-  const [audioUrl, setAudioUrl] = useState('');
-  const [isPlaying,setIsPlaying] = useState(false);
-  const [overallTime,setOverallTime] = useState<number>(Number);
+  // // const [text, setText] = useState('');
+  // // const [speechId, setSpeechId] = useState('');
+  // // const [audioUrl, setAudioUrl] = useState('');
+  // // const [isPlaying,setIsPlaying] = useState(false);
+  // // const [overallTime,setOverallTime] = useState<number>(Number);
 
-  const postTextToSpeechApi = async (text:string)=>{
-    try{
-      const response = await apiClient.post<postTextToSpeech>("https://large-text-to-speech.p.rapidapi.com/tts",{text},{
-        headers: {
-          'Content-Type': 'application/json',
-          'X-RapidAPI-Key': rapid_key,
-        }
-      });
-      if(response.status === 200){
-        setSpeechId(response.data.id);
-        fetchSpeech(response.data.id);
-      }else{
-        console.log('Text-to-speech API request failed');
-      }
-    }catch(error){
-      console.log('An error accured while communicating', error);
-    }
-  };
+  // const postTextToSpeechApi = async (text:string)=>{
+  //   try{
+  //     const response = await apiClient.post<postTextToSpeech>("https://large-text-to-speech.p.rapidapi.com/tts",{text},{
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'X-RapidAPI-Key': rapid_key,
+  //       }
+  //     });
+  //     if(response.status === 200){
+  //       setSpeechId(response.data.id);
+  //       fetchSpeech(response.data.id);
+  //     }else{
+  //       console.log('Text-to-speech API request failed');
+  //     }
+  //   }catch(error){
+  //     console.log('An error accured while communicating', error);
+  //   }
+  // };
 
-  const fetchSpeech = async (data: string)=>{
-    try {
-      const response = await fetch(`https://large-text-to-speech.p.rapidapi.com/tts?id=${data}`, {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Host': 'large-text-to-speech.p.rapidapi.com',
-          'X-RapidAPI-Key': rapid_key
-        }
-      });
-      if (response.ok) {
-        const result = await response.json();
-        console.log("results using fetch ",result);
-      }
-    } catch (err) {
-      console.error(err);
-    }
-    const options = {
-      method: 'GET',
-      url: 'https://large-text-to-speech.p.rapidapi.com/tts',
-      params: {id: data},
-      headers: {
-        'X-RapidAPI-Host': 'large-text-to-speech.p.rapidapi.com',
-        'X-RapidAPI-Key': rapid_key
-      }
-    };
+  // const fetchSpeech = async (data: string)=>{
+  //   try {
+  //     const response = await fetch(`https://large-text-to-speech.p.rapidapi.com/tts?id=${data}`, {
+  //       method: 'GET',
+  //       headers: {
+  //         'X-RapidAPI-Host': 'large-text-to-speech.p.rapidapi.com',
+  //         'X-RapidAPI-Key': rapid_key
+  //       }
+  //     });
+  //     if (response.ok) {
+  //       const result = await response.json();
+  //       console.log("results using fetch ",result);
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  //   const options = {
+  //     method: 'GET',
+  //     url: 'https://large-text-to-speech.p.rapidapi.com/tts',
+  //     params: {id: data},
+  //     headers: {
+  //       'X-RapidAPI-Host': 'large-text-to-speech.p.rapidapi.com',
+  //       'X-RapidAPI-Key': rapid_key
+  //     }
+  //   };
     
-    if(data){
-      axios.request<getTextToSpeech>(options).then(function (response) {
-        console.log("getTextToSpeech : ",response.data);
-        setAudioUrl(response.data.url);
-        setOverallTime(response.data.job_time);
-      }).catch(function (error) {
-        console.error(error);
-      });
-    }
-  };
+  //   if(data){
+  //     axios.request<getTextToSpeech>(options).then(function (response) {
+  //       console.log("getTextToSpeech : ",response.data);
+  //       setAudioUrl(response.data.url);
+  //       setOverallTime(response.data.job_time);
+  //     }).catch(function (error) {
+  //       console.error(error);
+  //     });
+  //   }
+  // };
 
-  const togglePlay = ()=>{
-    setIsPlaying((prevIsPlaying)=> !prevIsPlaying);
-  }
+  // const togglePlay = ()=>{
+  //   setIsPlaying((prevIsPlaying)=> !prevIsPlaying);
+  // }
 
   useEffect(()=>{
     const controller = new AbortController();
@@ -109,7 +109,7 @@ const BlogPost = ()=>{
         if(!data) {
           setError('Unable to find requested data');
         }
-          setText(data.postBody);
+          //setText(data.postBody);
           setTitle(data.title);
           setImage(data.image);
           setCategoryName(categoryName.data.name);
