@@ -9,7 +9,7 @@
     "backend-install": "npm install --prefix backend-blog",
     "package-install": "concurrently \"npm run client-install\" \"npm run backend-install\"",
     "client": "npm start --prefix client-blog",
-    "server": "npm start --prefix backend-blog",
+    "server": "npm start:dev --prefix backend-blog",
     "start-dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "repository": {
@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/mavhungu/nestjs-blog#readme",
   "devDependencies": {
-    "concurrently": "^7.3.0"
+    "concurrently": "^7.6.0"
   }
 }
