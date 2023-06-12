@@ -1,6 +1,5 @@
 import React from 'react';
 import { Search } from '.';
-import { RiSearchLine } from 'react-icons/ri';
 
 const Aside = ()=>{
   return (
@@ -9,8 +8,7 @@ const Aside = ()=>{
         <Search />
         <div className="">
           <div className="bg-primary-600 flex justify-between items-center py-4">
-            <p className="text-white center ml-2">Main Aside</p>
-            <RiSearchLine size={15} className='mr-3'/>
+            <p className="text-white center ml-2">Recent Posts</p>
           </div>
 
           <div className='relative flex items-center mt-2 border-b border-gray-200 pb-3 space-y-3 space-x-6 w-full'>
