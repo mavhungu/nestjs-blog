@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
-
 const Register = () => {
 	const [email,setEmail] = useState('');
 	const [password,setPassword] = useState('');

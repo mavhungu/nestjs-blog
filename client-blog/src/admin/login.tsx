@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +20,6 @@ const Login = () => {
     setEmail(' ');
     setPassword('');
 
-    console.log(data);
     if(data.email) {return navigate("/admin/dashboard")}
   }
 
