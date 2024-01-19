@@ -6,10 +6,10 @@ const Wrapper = (props:any)=>{
   return (
     <div className='wrapper'>
       <Navbar />
-      <div className=''>
-        <div className='flex'>
+      <div className='container mx-auto'>
+        <div className='flex md:flex-raw md:space-x-5'>
           <Menu />
-            <main className=''>
+            <main className='w-full'>
               {props.children}
             </main>
         </div>
