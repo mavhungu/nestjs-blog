@@ -1,10 +1,16 @@
 import React from 'react'
 import Wrapper from "../components/Wrapper";
+// import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
 
-export const Dashboard = ()=>{
+const Dashboard = ()=>{
   return (
     <Wrapper>
-      <p>Dashboard</p>
+      <div className='mt-2'>
+
+      </div>
     </Wrapper>
   )
 }
+
+export default Dashboard;
