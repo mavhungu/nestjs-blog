@@ -12,7 +12,7 @@ const Login = () => {
     e.preventDefault();
     if (!email || !password) return;
     const user = { email, password };
-    console.log(user);
+
     const {data} = await axios.post("admin/login",user,{withCredentials:true});
 
     axios.defaults.headers.common['Authorization'] = `Bearer ${data['token']}`;
@@ -26,11 +26,11 @@ const Login = () => {
   return (
     <div className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12">
       <div className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute inset-0 bg-[url('img/logo.png')] bg-center [mask-image:linear-gradient(180deg,white,rgb(255,255,255,0))]"></div>
+      {/* <div className="absolute inset-0 bg-[url('img/logo.png')] bg-center [mask-image:linear-gradient(180deg,white,rgb(255,255,255,0))]"></div> */}
     <div className="relative mx-auto w-full max-w-md bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
       <div className="w-full">
         <div className="text-center">
-          <h1 className="text-3xl font-semibold text-gray-900">Welcome. Feel at home</h1>
+          <h1 className="text-3xl font-semibold text-gray-900">Welcome</h1>
           <p className="mt-2 text-gray-500">Sign in below to access your account</p>
         </div>
         <div className="mt-8">

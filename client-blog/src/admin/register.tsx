@@ -10,18 +10,20 @@ const Register = () => {
 	const registerUser = async (e:any)=>{
 		e.preventDefault();
 		const user = {email,password};
+		console.log("users details... ", user);
 		const {data} = await axios.post("admin/register",user,{withCredentials:true});
-		console.log(data);
+		console.log("sending register data.. ",data);
 
-		}
+	}
+	
   return (
 	<div className="relative flex min-h-screen flex-col justify-center overflow-hidden py-6 sm:py-12">
 		<div className="absolute top-1/2 left-1/2 max-w-none -translate-x-1/2 -translate-y-1/2" />
-			<div className="absolute inset-0 bg-[url('img/logo.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+			{/* <div className="absolute inset-0 bg-[url('img/logo.png')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div> */}
 				<div className="relative mx-auto w-full max-w-md bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
 					<div className="w-full">
 						<div className="text-center">
-							<h1 className="text-3xl font-semibold text-gray-900">Welcome Home</h1>
+							<h1 className="text-3xl font-semibold text-gray-900">Welcome</h1>
 							<p className="mt-2 text-gray-500">Register in below to create an account</p>
 						</div>
 						<div className="mt-8">
