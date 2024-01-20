@@ -10,9 +10,7 @@ const Register = () => {
 	const registerUser = async (e:any)=>{
 		e.preventDefault();
 		const user = {email,password};
-		console.log("users details... ", user);
 		const {data} = await axios.post("admin/register",user,{withCredentials:true});
-		console.log("sending register data.. ",data);
 
 	}
 	
