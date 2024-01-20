@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import "./interceptors/axios";
 import './index.css';
 import App from './App';
+import { NavbarContextProvider } from './admin/context/NavbarContext';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -11,9 +12,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <NavbarContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </NavbarContextProvider>
   </React.StrictMode>
 );
 
