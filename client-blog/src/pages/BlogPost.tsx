@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import apiClient from '../services/api-service';
 import moment from 'moment';
-import axios from 'axios';
 import { Wrapper } from '../components';
-import { blogPost, Category, Tag } from '../interfaces';
+import { blogPost } from '../interfaces';
 
-import { AiOutlineInstagram } from 'react-icons/ai'
-import { FaFacebook, FaLinkedinIn } from 'react-icons/fa'
-import { BsTwitter } from 'react-icons/bs'
+import { AiOutlineInstagram } from 'react-icons/ai';
+import { FaFacebook, FaLinkedinIn } from 'react-icons/fa';
+import { BsTwitter } from 'react-icons/bs';
 
 const BlogPost = ()=>{
   
