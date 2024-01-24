@@ -7,9 +7,11 @@ export class CreatePostDto {
   @IsBoolean()
   published: boolean;
   @IsString()
-  slug?: string;
+  @IsNotEmpty()
+  slug: string;
   @IsString()
-  image?: string;
+  @IsNotEmpty()
+  image: string;
   @IsString()
   @IsNotEmpty()
   summary: string
