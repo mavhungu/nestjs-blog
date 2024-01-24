@@ -108,14 +108,10 @@ const BlogPost = ()=>{
         if(!data) {
           setError('Unable to find requested data');
         }
-          //setText(data.postBody);
           setTitle(data.title);
           setImage(data.image);
           setCreatedAt(moment(data.createdAt).format('MMM Do, YYYY'));
           setPostBody(data.postBody);
-          // setCategoryName(categoryName.data.name);
-          // setTagName(tagName.data.name)
-          //postTextToSpeechApi(data.postBody);
       }
       )();
       return ()=> { controller.abort(); };
