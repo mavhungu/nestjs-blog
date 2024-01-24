@@ -12,6 +12,7 @@ import { BsTwitter } from 'react-icons/bs';
 const BlogPost = ()=>{
   
   //const rapid_key = process.env.REACT_APP_RAPID_API_KEY || '';
+  
   //Get param id/value
   let { id } = useParams();
 
@@ -21,76 +22,9 @@ const BlogPost = ()=>{
   const [image,setImage]= useState('');
   const [postBody,setPostBody] = useState('');
   const [createdAt,setCreatedAt] = useState('');
-  //const [adion, setAudio] = useState('');
 
   const [error,setError] = useState('');
   const [loading,setLoading] = useState(false);
-
-  // // const [text, setText] = useState('');
-  // // const [speechId, setSpeechId] = useState('');
-  // // const [audioUrl, setAudioUrl] = useState('');
-  // // const [isPlaying,setIsPlaying] = useState(false);
-  // // const [overallTime,setOverallTime] = useState<number>(Number);
-
-  // const postTextToSpeechApi = async (text:string)=>{
-  //   try{
-  //     const response = await apiClient.post<postTextToSpeech>("https://large-text-to-speech.p.rapidapi.com/tts",{text},{
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'X-RapidAPI-Key': rapid_key,
-  //       }
-  //     });
-  //     if(response.status === 200){
-  //       setSpeechId(response.data.id);
-  //       fetchSpeech(response.data.id);
-  //     }else{
-  //       console.log('Text-to-speech API request failed');
-  //     }
-  //   }catch(error){
-  //     console.log('An error accured while communicating', error);
-  //   }
-  // };
-
-  // const fetchSpeech = async (data: string)=>{
-  //   try {
-  //     const response = await fetch(`https://large-text-to-speech.p.rapidapi.com/tts?id=${data}`, {
-  //       method: 'GET',
-  //       headers: {
-  //         'X-RapidAPI-Host': 'large-text-to-speech.p.rapidapi.com',
-  //         'X-RapidAPI-Key': rapid_key
-  //       }
-  //     });
-  //     if (response.ok) {
-  //       const result = await response.json();
-  //       console.log("results using fetch ",result);
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  //   const options = {
-  //     method: 'GET',
-  //     url: 'https://large-text-to-speech.p.rapidapi.com/tts',
-  //     params: {id: data},
-  //     headers: {
-  //       'X-RapidAPI-Host': 'large-text-to-speech.p.rapidapi.com',
-  //       'X-RapidAPI-Key': rapid_key
-  //     }
-  //   };
-    
-  //   if(data){
-  //     axios.request<getTextToSpeech>(options).then(function (response) {
-  //       console.log("getTextToSpeech : ",response.data);
-  //       setAudioUrl(response.data.url);
-  //       setOverallTime(response.data.job_time);
-  //     }).catch(function (error) {
-  //       console.error(error);
-  //     });
-  //   }
-  // };
-
-  // const togglePlay = ()=>{
-  //   setIsPlaying((prevIsPlaying)=> !prevIsPlaying);
-  // }
 
   useEffect(()=>{
     const controller = new AbortController();
@@ -167,34 +101,8 @@ const BlogPost = ()=>{
                       <div dangerouslySetInnerHTML={{__html:postBody}} />
                     </p>
                   </div>
-                    {/* <div>
-                      <button onClick={togglePlay}>{isPlaying ? <AiOutlinePause/> : <BsPlay/>}</button>
-                      <span>{overallTime}</span>
-                    </div>
-                    <audio controls autoPlay={isPlaying}>
-                      <source src={audioUrl} type="audio/mpeg" />
-                      Your browser does not support the audio element.
-                    </audio> */}
               </div>
             </div>
-
-            {/* <div className='hidden lg:block w-1/5 ml-2'>
-              <div className="flex flex-col">
-                <div className="bg-primary-600 flex justify-between items-center mb-2 py-2">
-                  <p className="text-white text-center ml-2">Category</p>
-                </div>
-                <div className="mb-2 text-center">
-                  <p className="mb-2">{catagoryId}</p>
-                </div>
-
-                <div className="bg-primary-600 flex justify-between items-center py-2">
-                  <p className="text-white text-center ml-2">Tag</p>
-                </div>
-                <div className="text-center">
-                  <p className="my-2">{tagId}</p>
-                </div>
-              </div>
-            </div> */}
           </div>
         )
       }
