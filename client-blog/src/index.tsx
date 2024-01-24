@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 import "./interceptors/axios";
 import './index.css';
 import App from './App';
@@ -14,7 +15,9 @@ root.render(
   <React.StrictMode>
     <NavbarContextProvider>
       <BrowserRouter>
-        <App />
+        <SnackbarProvider anchorOrigin={{vertical:'top', horizontal:'right'}}>
+          <App />
+        </SnackbarProvider>
       </BrowserRouter>
     </NavbarContextProvider>
   </React.StrictMode>
