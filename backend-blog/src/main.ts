@@ -14,9 +14,8 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
-  await app.listen(5000,()=>{
+  await app.listen(5000, () => {
     console.log(`Nest server listening on port ${process.env.PORT}`);
   });
-  console.log(process.env.DATABASE_URL);
 }
 bootstrap();
