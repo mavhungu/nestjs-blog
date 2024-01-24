@@ -1,24 +1,13 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react'
-import PropTypes from 'prop-types'
 import axios from 'axios';
 import slugify from 'react-slugify';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useSnackbar } from 'notistack';
 
+import { FormValues } from '../interfaces';
 import Wrapper from "../components/Wrapper";
 
-interface FormValues {
-  title: string;
-  image: string;
-  summary: string;
-  postBody: string;
-  slug: string;
-  categoryId: string;
-  tagId: string;
-  published: boolean | string | undefined;
-  authorId: string;
-}
 
 const CreatePost = ()=> {
 
@@ -90,12 +79,11 @@ const CreatePost = ()=> {
         });
       } else {
         // Error response from the backend
-        //console.log(response.data);
         enqueueSnackbar(response.data.message, { variant: 'error' });
       }
     } catch(error){
       // Handle error and display error notification
-      console.error('Error submitting form:', error);
+    
       enqueueSnackbar('An error occurred while submitting the form', { variant: 'error' });
     }
   }
@@ -156,7 +144,5 @@ const CreatePost = ()=> {
     </Wrapper>
   )
 }
-
-// CreatePost.propTypes = {}
 
 export default CreatePost;
