@@ -13,7 +13,7 @@ const Navbar = ()=>{
         <div className="hidden md:block">
           <div className="flex items-center justify-between">
             <div className="">
-              <Link to={'/'} className='text-white'>Home</Link>
+              <Link to={'/admin/dashboard'} className='text-white'>Home</Link>
             </div>
             <div className='flex justify-start items-center space-x-3'>
               <Link to={'/admin/add-post'} className="hover:text-gray-500 text-bold">Home</Link>
