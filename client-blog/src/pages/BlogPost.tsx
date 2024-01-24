@@ -167,7 +167,9 @@ const BlogPost = ()=>{
                   </div>
                 </div>
                   <div className="mt-16">
-                    <p className="">{postBody}</p>
+                    <p className="">
+                      <div dangerouslySetInnerHTML={{__html:postBody}} />
+                    </p>
                   </div>
                     {/* <div>
                       <button onClick={togglePlay}>{isPlaying ? <AiOutlinePause/> : <BsPlay/>}</button>
