@@ -8,7 +8,6 @@ import {
   CreateCategoryDto,
   UpdateCategoryDto,
 } from '../dto';
-const slugify = require('slugify');
 
 @Injectable()
 export class PostService {
@@ -51,9 +50,9 @@ export class PostService {
 
   async deleteCategory(id: string) {
     const category = await this.prismaService.category.findUnique({
-      where: { id }
-    })
-    if(!category) {
+      where: { id },
+    });
+    if (!category) {
       throw new BadRequestException('Invalid category');
     }
     return await this.prismaService.category.delete({
@@ -73,19 +72,8 @@ export class PostService {
    * @returns
    */
   async addPost(dto: CreatePostDto) {
-
     return await this.prismaService.post.create({
-      data: {
-        title: dto.title,
-        summary: dto.summary,
-        postBody: dto.postBody,
-        slug: slugify(dto.summary),
-        image: dto.image,
-        authorId: dto.authorId,
-        tagId: dto.tagId,
-        categoryId: dto.categoryId,
-        published: dto.published,
-      },
+      data: dto,
     });
   }
 
@@ -112,28 +100,27 @@ export class PostService {
     });
   }*/
 
-
   async updatePosts(id: string, updatePostDto: UpdatePostDto) {
     return await this.prismaService.post.update({
-      where: {id},
+      where: { id },
       data: {
-        ...updatePostDto
-      }
-    })
+        ...updatePostDto,
+      },
+    });
   }
 
   async removePost(id: string) {
     const post = await this.prismaService.post.findUnique({
-      where: {id},
+      where: { id },
     });
 
-    if(!post) {
+    if (!post) {
       throw new BadRequestException('Invalid post');
     }
 
     return await this.prismaService.post.delete({
       where: {
-        id
+        id,
       },
     });
   }
@@ -168,12 +155,12 @@ export class PostService {
   }
 
   async removeTag(id: string) {
-  const tag = await this.prismaService.tag.findUnique({
-    where: { id }
-  });
-   if(!tag) {
+    const tag = await this.prismaService.tag.findUnique({
+      where: { id },
+    });
+    if (!tag) {
       throw new BadRequestException('Invalid tag');
-   }
+    }
     return await this.prismaService.tag.delete({
       where: { id },
     });

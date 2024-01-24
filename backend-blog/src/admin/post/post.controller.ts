@@ -35,7 +35,20 @@ export class PostController {
 
   @Post('post/add')
   async addPost(@Body() createPostDto: CreatePostDto) {
-    return this.postService.addPost(createPostDto);
+    try {
+      const savedPost = await this.postService.addPost(createPostDto);
+      return {
+        statusCode: 200,
+        message: 'Post saved successfully',
+        post: savedPost,
+      };
+    } catch (error) {
+      console.error(error);
+      return {
+        statusCode: 500,
+        message: 'Internal server error',
+      };
+    }
   }
 
   @Get('post/:id')
